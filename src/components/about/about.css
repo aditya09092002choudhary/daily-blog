@@ -1,0 +1,9 @@
+.about-container{
+    background: white;
+    margin-top: 20px;
+    padding: 0 10px;
+}
+
+.about-container li{
+    list-style-type: disc !important;
+}

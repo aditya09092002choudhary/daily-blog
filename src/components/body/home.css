@@ -1,0 +1,32 @@
+.home-container h1{
+    text-align: start !important;
+    font-family: 'Courier New', Courier, monospace !important;
+}
+.home-container .inner-container{
+    background-color: white;
+    margin-top: -10px;
+    box-shadow: 0 0 10px gray;
+    padding: 5px 3%;
+    text-align: start !important;
+
+}
+.posts{
+    margin-left: 10px;
+}
+.posts .post{
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    border-radius: 7px;
+    margin-bottom: 10px;
+}
+.posts .post:hover{
+    box-shadow: 0 0 5px gray;
+}
+@media screen and (max-width:650px) {
+    h1{
+        font-size: 1.9rem;
+    }
+    h2{
+        font-size: 1.3rem;
+    }
+}

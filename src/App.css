@@ -5,8 +5,14 @@ html,body{
 #root{
     min-height: 100vh;
     display: grid;
-    grid-template-rows: .1fr 2.8fr .1fr;
+    grid-template-rows: .1fr 2.9fr .1fr;
     grid-template-columns: 1fr;
     flex-direction: column;
     justify-content: space-between;
 }
+/* @media screen and (max-width:650px) {
+#root{
+        display: flex;
+        flex-direction: column;
+    }
+} */

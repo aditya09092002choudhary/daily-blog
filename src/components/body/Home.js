@@ -17,6 +17,7 @@ const Home = (props) => {
                 <div className="heading"><h1>Home</h1></div>
                 <div className="posts">
                     {
+                        (content.length===0)?<img width={20} style={{margin:"30px auto",display:"block"}} src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="fetching" />:
                         content.map((val,i)=>{
                             return <div className="post" key={i}>
                                     <h2>{val.title}</h2>

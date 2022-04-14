@@ -1,10 +1,10 @@
 import React from 'react';
 import './compose.css';
-const Compose = (props) => {
+const Edit = (props) => {
     return (
         <div className='compose-container'>
             <div className="compose">
-                <h1>Compose</h1>
+                <h1>Edit</h1>
                 <div className="title-container">
                     <label htmlFor="title">Title</label>
                     <div className="input">
@@ -26,4 +26,4 @@ const Compose = (props) => {
     );
 }
 
-export default Compose;
+export default Edit;

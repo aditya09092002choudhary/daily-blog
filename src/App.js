@@ -11,10 +11,10 @@ import About from "./components/about/About";
 import Post from "./components/posts/Post";
 import News from "./components/news/News";
 import Compose from "./components/compose/Compose";
+import Edit from "./components/compose/Edit";
 const App = () => {
     // const title ="Day 1";
     // const para = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam possimus laboriosam quis voluptate. Hic, laborum asperiores. Magni ipsa itaque, perferendis rem maiores hic quasi, totam ab labore corporis aspernatur laborum repellat necessitatibus sapiente aliquam est nihil libero animi ratione et aperiam. Error cumque, ullam officia maiores cupiditate ducimus quod placeat.";
-    
   return (
     <React.StrictMode>
       <Router>
@@ -27,6 +27,7 @@ const App = () => {
           <Route path="about" element={<About />} />
           <Route path="news" element={<News />} />
           <Route path="compose" element={<Compose />} />
+          <Route path="edit" element={<Edit />} />
           <Route path={`posts/:id`} element={<Post />}/>
         </Routes>
         <Footer />

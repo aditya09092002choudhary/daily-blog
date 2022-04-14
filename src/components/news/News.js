@@ -5,7 +5,7 @@ import axios from 'axios';
 function News(){
     const [news, setnews] = useState([]);
     let a=[]; 
-    const baseUrl = "https://newsdata.io/api/1/news?apikey=pub_6494e69154e027b9ccf588e62e619540fb4e&country=in,ru,ua,us&category=business,politics,science,technology,top ";
+    const baseUrl = "https://newsdata.io/api/1/news?apikey=pub_6494e69154e027b9ccf588e62e619540fb4e&q=latest&country=in,ru,ua,us&language=en&category=health,politics,science,top,world ";
     // console.log(this.params.id);
     useEffect(() => {
         axios.get(baseUrl).then((response)=>{

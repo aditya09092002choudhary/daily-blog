@@ -1,0 +1,38 @@
+.compose-container{
+    background: white;
+    margin-top: 20px;
+    
+
+}
+.compose h1{
+    line-height: .5;
+}
+.compose-container .compose{
+    width: 70%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    /* text-align: center; */
+    margin: 30px auto 0;
+    padding: 10px 30px;
+}
+
+.title-container{
+    margin: 30px auto;
+}
+.content-container,.button-container{
+    margin: 15px auto 0;
+}
+.button-container button{
+    padding: 8px 12px;
+    background-color: orange;
+    font-size: 14px;
+    border: none;
+    margin-right: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+}
+.compose input,.compose textarea{
+    border: 1px solid #ddd;
+    margin-top: 5px;
+}

@@ -20,7 +20,7 @@ const Navbar = () => {
     return (
         <nav className="navbar">
             <div className="container">
-                <div className="logo"><h2>Daily Blogs</h2></div>
+                <div className="logo"><a href="/"><h2>Daily Blogs</h2></a></div>
                 <div className="nav-items">
                     <ul className="nav-list">
                         {link.map((link,i)=>{

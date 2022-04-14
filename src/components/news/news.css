@@ -1,5 +1,5 @@
 .news-container h1{
-    /* color: darkorange; */
+    /* color: darkdarkslategrey; */
     margin-left: 10px;
     line-height: .8;
 }
@@ -41,7 +41,7 @@
 
 .news button{
     width: 70px;
-    background-color: orange;
+    background-color: darkslategrey;
     color: white;
     padding: 4px 4px;
     border-radius: 3px;

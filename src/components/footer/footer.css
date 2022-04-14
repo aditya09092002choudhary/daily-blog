@@ -1,8 +1,7 @@
 .footer-container{
     text-align: center;
-    background-color: orange;
+    background-color: darkslategrey;
     color: white;
-    /* position: absolute; */
     bottom: 0px;
     left: 0;
     right: 0;
@@ -10,7 +9,6 @@
 }
 
 .footer-container .footer p{
-    /* margin: 5px; */
     padding: 5px;
 }
 

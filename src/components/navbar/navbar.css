@@ -1,5 +1,5 @@
 nav{
-    background: orange;
+    background: darkslategrey;
     color: white;
 }
 
@@ -9,6 +9,10 @@ nav .container{
     align-items: center;
     white-space: nowrap;
     padding: 0 30px;
+}
+.logo a{
+    text-decoration: none;
+    color: white;
 }
 .logo h2{
     font-family: cursive;

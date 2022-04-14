@@ -1,20 +1,29 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import './home.css';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
+const baseUrl="https://daily-blog-backend.herokuapp.com/";
 const Home = (props) => {
-    
-    const para = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam possimus laboriosam quis voluptate. Hic, laborum asperiores. Magni ipsa itaque, perferendis rem maiores hic quasi, totam ab labore corporis aspernatur laborum repellat necessitatibus sapiente aliquam est nihil libero animi ratione et aperiam. Error cumque, ullam officia maiores cupiditate ducimus quod placeat.";
+    const [content, setcontent] = useState([]);
+    useEffect(() => {
+        axios.get(baseUrl).then((response)=>{
+            console.log(response);
+            setcontent(response.data)
+        })
+    }, []);
     return (
         <div className="home-container">
                 <div className="greet"><p style={{textAlign:"end"}}>Welcome {props.greet} ! &nbsp;</p></div>
             <div className="inner-container">
                 <div className="heading"><h1>Home</h1></div>
                 <div className="posts">
-                    <div className="post">
-                        <h2>Day 1</h2>
-                        <p>{para.substring(0,70)+ "..."} <Link to={`/posts/${10}`}>Read More</Link></p>
-                    </div>
+                    {
+                        content.map((val,i)=>{
+                            return <div className="post" key={i}>
+                                    <h2>{val.title}</h2>
+                                    <p>{`${val.content}`.substring(0,70)+ "..."} <a href={`posts/${val._id}`} style={{color:"blue"}}>Read More</a></p>
+                                   </div>
+                        })
+                    }
                 </div>
             </div>
         </div>

@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Contact from "./components/contact/Contact";
 import About from "./components/about/About";
 import Post from "./components/posts/Post";
-
+import News from "./components/news/News";
 const App = () => {
     const title ="Day 1";
     const para = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam possimus laboriosam quis voluptate. Hic, laborum asperiores. Magni ipsa itaque, perferendis rem maiores hic quasi, totam ab labore corporis aspernatur laborum repellat necessitatibus sapiente aliquam est nihil libero animi ratione et aperiam. Error cumque, ullam officia maiores cupiditate ducimus quod placeat.";
@@ -23,7 +23,8 @@ const App = () => {
           <Route path="register" element={<Register />} />
           <Route path="contact" element={<Contact />} />
           <Route path="about" element={<About />} />
-          <Route path="post" element={<Post title={title} content={para} />}/>
+          <Route path="news" element={<News />} />
+          <Route path={`posts/:id`} element={<Post title={title} content={para} />}/>
         </Routes>
         <Footer />
       </Router>
@@ -32,3 +33,4 @@ const App = () => {
 };
 
 export default App;
+// 53d78ef0fef34d6aa6d46f98bb962a69

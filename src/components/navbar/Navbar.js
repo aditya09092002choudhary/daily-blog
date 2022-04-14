@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
-    const link = [{name:"Home",link:"/"},{name:"About Us",link:"/about"},{name:"Contact Us",link:"/contact"},{name:"Login",link:"/login"},{name:"Register",link:"/register"}]
+    const link = [{name:"Home",link:"/"},{name:"About Us",link:"/about"},{name:"Contact Us",link:"/contact"},{name:"Login",link:"/login"},{name:"Register",link:"/register"},{name:"News",link:"/news"}]
     const [state, setstate] = useState(2);
     function handleClick(){
         setstate(()=>{

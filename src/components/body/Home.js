@@ -1,7 +1,9 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './home.css';
-
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 const Home = (props) => {
+    
     const para = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam possimus laboriosam quis voluptate. Hic, laborum asperiores. Magni ipsa itaque, perferendis rem maiores hic quasi, totam ab labore corporis aspernatur laborum repellat necessitatibus sapiente aliquam est nihil libero animi ratione et aperiam. Error cumque, ullam officia maiores cupiditate ducimus quod placeat.";
     return (
         <div className="home-container">
@@ -11,7 +13,7 @@ const Home = (props) => {
                 <div className="posts">
                     <div className="post">
                         <h2>Day 1</h2>
-                        <p>{para.substring(0,70)+ "..."} <a href="/post">Read More</a></p>
+                        <p>{para.substring(0,70)+ "..."} <Link to={`/posts/${10}`}>Read More</Link></p>
                     </div>
                 </div>
             </div>

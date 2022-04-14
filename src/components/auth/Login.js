@@ -22,7 +22,6 @@ const Login = () => {
                 <div  className="input">
                   <input type="password" placeholder="Enter Password" id="password"  required/>
                 </div>
-                <div  className="icon-right" ><i  className="fa-solid fa-eye-slash eye1" ></i></div>
               </div>
               <div  className="checkbox">
                 <input type="checkbox" name="check" id="check" /> <label htmlFor="check">Remember me</label>

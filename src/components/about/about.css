@@ -7,3 +7,9 @@
 .about-container li{
     list-style-type: disc !important;
 }
+
+@media screen and (max-width:650px) {
+    .about-container{
+        font-size: .9rem;
+    }
+}

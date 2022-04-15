@@ -1,7 +1,8 @@
 import React,{useState,useEffect} from 'react';
 import './home.css';
 import axios from 'axios';
-const baseUrl="https://daily-blog-backend.herokuapp.com/";
+// const baseUrl="https://daily-blog-backend.herokuapp.com/";
+const baseUrl = "http://localhost:4000/";
 const Home = (props) => {
     const [content, setcontent] = useState([]);
     useEffect(() => {

@@ -2,7 +2,8 @@ import React,{useState,useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import './post.css';
 import axios from 'axios';
-const baseUrl="https://daily-blog-backend.herokuapp.com/posts/";
+// const baseUrl="https://daily-blog-backend.herokuapp.com/posts/";
+const baseUrl = "http://localhost:4000/posts/";
 const Post = () => {
     const { id } = useParams();
     // console.log(id);

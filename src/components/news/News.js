@@ -25,7 +25,7 @@ function News(){
                     <div className="details">
 
                     <div className="heading">
-                        <h2>{`${val.title}`.substring(0,50)+"..."}</h2>
+                        <h2>{`${val.title}`.substring(0,60)+"..."}</h2>
                     </div>
                     <div className="desc"><p>{`${val.description}`.substring(0,200)+"..."}</p></div>
                     <div className="link">

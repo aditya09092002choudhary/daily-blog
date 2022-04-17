@@ -6,7 +6,7 @@ import axios from 'axios';
  const baseUrl="https://daily-blog-backend.herokuapp.com/";
 // const baseUrl = "http://localhost:4000/";
 const Home = (props) => {
-    const [logs,setLogs]=useState(1);
+    const [logs,setLogs]=useState(0);
     const [content, setcontent] = useState([]);
     useEffect(() => {
         axios.get(baseUrl).then((response)=>{

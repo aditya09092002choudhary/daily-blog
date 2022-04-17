@@ -1,10 +1,14 @@
-import axios from 'axios';
-import React,{useState} from 'react';
+import Axios from 'axios';
+import React,{useState,useEffect} from 'react';
 import './auth.css';
 
 // const baseUrl="https://daily-blog-backend.herokuapp.com/";
 const baseUrl = "http://localhost:4000/login";
 const Login = () => {
+  useEffect(() => {
+    document.title = "Login | Daily Blogs"
+}, []);
+  const [valid,setvalid]=useState(0);
   const [auth, setauth] = useState({
     username:"",
     password:""
@@ -25,14 +29,19 @@ const Login = () => {
       }
     })
   }
-  function send(){
+  function send(e){
+    e.preventDefault();
     console.log(auth);
-    axios.post(baseUrl, {username:auth.username,password:auth.password})
+    Axios.post("http://localhost:4000/login", auth)
     .then(function (response) {
-      console.log(response);
+      if(response.data==="Success"){
+        window.location.href="/";
+      }else{
+        setvalid(response.data);
+      }
     })
     .catch(function (error) {
-      console.log(error);
+      setvalid(401);
     });
   }
     return (
@@ -40,13 +49,14 @@ const Login = () => {
       <div  className="inner-container" style={{height:"80%",display:"flex",flexDirection:"column",justifyContent:"center"}}>
         <div  className="heading"><h1>Login</h1></div>
         <div  className="form-container">
-          {/* <form  className="signup-form"> */}
+         {(valid==="Success")?<p style={{color:"red"}}>&nbsp;Incorrect username or password.</p>:""} 
+          <form method='post' className="signup-form">
             <div  className="form-element">
               <div id="emailMsg"  className="err"></div>
               <div  className="inner-element">
                 <div  className="icon"><i  className="fa-solid fa-envelope"></i></div>
                 <div  className="input">
-                  <input type="email" onChange={handleChange} name='username' placeholder="Enter Email" id="email"  autoComplete="off" required/>
+                  <input type="email" onChange={handleChange} name='username' placeholder="Enter username" id="email"  autoComplete="off" required/>
                 </div>
               </div>
               <div id="passwordMsg"  className="err"></div>
@@ -63,7 +73,7 @@ const Login = () => {
                 <button type="submit" onClick={send}>Submit <i  className="fa-solid fa-paper-plane"></i></button>
               </div>
             </div>
-          {/* </form> */}
+          </form>
             </div>
         </div>
       </div>

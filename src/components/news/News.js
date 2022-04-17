@@ -3,13 +3,17 @@ import './news.css';
 import axios from 'axios';
 
 function News(){
+    useEffect(() => {
+        document.title = "News | Daily Blogs"
+    }, []);
+    document.getElementById("root").style.display="block";
     const [news, setnews] = useState([]); 
-    const baseUrl = "https://newsdata.io/api/1/news?apikey=pub_6494e69154e027b9ccf588e62e619540fb4e&q=latest&country=in,ru,ua,us&language=en&category=health,politics,science,top,world ";
+    const baseUrl = "http://newsapi.org/v2/top-headlines?country=in&apikey=53d78ef0fef34d6aa6d46f98bb962a69";
     // console.log(this.params.id);
     useEffect(() => {
         axios.get(baseUrl).then((response)=>{
-            console.log(response);
-            setnews(response.data.results);
+            // console.log(response);
+            setnews(response.data.articles);
         })
     }, []);
     // setnews(response.data.articles);
@@ -20,16 +24,16 @@ function News(){
                 news.map((val,i)=>{
                     return <div className="news" key={i}>
                     <div className="image">
-                        <img src={(val.image_url!==null)?val.image_url:"https://images.unsplash.com/photo-1569516449771-41c89ee14ca3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8YW5vbnltb3VzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"} alt="" />
+                        <img src={(val.urlToImage!==null)?val.urlToImage:"https://images.unsplash.com/photo-1569516449771-41c89ee14ca3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8YW5vbnltb3VzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"} alt="" />
                     </div>
                     <div className="details">
 
                     <div className="heading">
-                        <h2>{`${val.title}`.substring(0,60)+"..."}</h2>
+                        <h2>{`${val.title}`.substring(0,45)+"..."}</h2>
                     </div>
-                    <div className="desc"><p>{`${val.description}`.substring(0,200)+"..."}</p></div>
+                    <div className="desc"><p>{`${val.description}`.substring(0,150)+"..."}</p></div>
                     <div className="link">
-                        <a href={val.link} target="_blank" rel="noreferrer"><button>View</button></a>
+                        <a href={val.url} target="_blank" rel="noreferrer"><button>View</button></a>
                     </div>
                     </div>
                 </div>
@@ -40,3 +44,5 @@ function News(){
 
 
 export default News;
+
+// https://newsdata.io/api/1/news?apikey=pub_6494e69154e027b9ccf588e62e619540fb4e&q=latest&country=in,ru,ua,us&language=en&category=health,politics,science,top,world

@@ -1,7 +1,6 @@
-.news-container h1{
-    /* color: darkdarkslategrey; */
+.news-container h1{ 
     margin-left: 10px;
-    line-height: .8;
+    line-height: .7;
 }
 
 .news-container .all-news{
@@ -63,5 +62,17 @@
     .news img{
     height: 150px;
 
+    }
+}
+
+@media screen and (min-width:650px) and (max-width:1050px) {
+    .news-container .all-news{
+        justify-content: space-between;
+    } 
+    .all-news .news{
+        width: 32%;
+    }
+    .news img{
+        height: 140px;
     }
 }

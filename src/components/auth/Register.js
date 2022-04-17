@@ -1,10 +1,14 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import './auth.css';
 import axios from 'axios';
+import {Navigate, Route,BrowserRouter as Router, Routes} from 'react-router-dom'
 
 // const baseUrl="https://daily-blog-backend.herokuapp.com/";
 const baseUrl = "http://localhost:4000/register";
 const Register = () => {
+  useEffect(() => {
+    document.title = "Register | Daily Blogs"
+}, []);
 //     const fName = document.querySelector("#fName");
 // const email = document.querySelector("#email");
 // const phone = document.querySelector("#phone");
@@ -151,6 +155,7 @@ const Register = () => {
 //     document.write("Success");
 //   }
 // }
+const [valid, setvalid] = useState("");
 const [auth, setauth] = useState({
   fName:"",
   lName:"",
@@ -192,14 +197,23 @@ function handleChange(e){
     }
   })
 }
+console.log(auth);
 function send(){
-  console.log(auth);
-  axios.post(baseUrl, {auth})
+  axios.post(baseUrl, auth)
   .then(function (response) {
     console.log(response);
+    setvalid(response.data);
+    if(valid==="1"){
+      <Router>
+        <Routes>
+          <Route path='/login' element={<Navigate to={"/"} />} />
+        </Routes>
+      </Router>
+    }
   })
   .catch(function (error) {
     console.log(error);
+    alert(error.message);
   });
 }
     return (
@@ -207,6 +221,7 @@ function send(){
       <div className="inner-container">
         <div className="heading"><h1>Register</h1></div>
         <div className="form-container">
+          {(valid!==""||valid!==1)?<p style={{color:"red"}}>{valid}</p>:""}
           {/* <form className="signup-form"> */}
             <div className="form-element">
               <div id="fNameMsg" className="err"></div>
@@ -214,13 +229,13 @@ function send(){
                 <div className="fName">
                   <div className="icon"><i className="fa-solid fa-user-large"></i></div>
                   <div className="input">
-                    <input type="text" placeholder="First Name" onClick={handleChange} id="fName" name='fName' autoComplete="off" style={{textTransform:"capitalize"}} required/>
+                    <input type="text" placeholder="First Name" onChange={handleChange} id="fName" name='fName' autoComplete="off" style={{textTransform:"capitalize"}} required/>
                   </div>
                 </div>
                 <div className="lName">
                   <div className="icon"><i className="fa-solid fa-user-large"></i></div>
                   <div className="input">
-                    <input type="text" placeholder="Last Name" onClick={handleChange} autoComplete="off" name='lName' style={{textTransform:"capitalize"}}/>
+                    <input type="text" placeholder="Last Name" onChange={handleChange} autoComplete="off" name='lName' style={{textTransform:"capitalize"}}/>
                   </div>
                 </div>
               </div>
@@ -228,7 +243,7 @@ function send(){
               <div className="inner-element">
                 <div className="icon"><i className="fa-solid fa-envelope"></i></div>
                 <div className="input">
-                  <input type="email" placeholder="Enter Email" onClick={handleChange} id="email"  name='username' autoComplete="off" required/>
+                  <input type="email" placeholder="Enter Email" onChange={handleChange} id="email"  name='username' autoComplete="off" required/>
                 </div>
               </div>
               {/* <div id="phoneMsg" className="err"></div>
@@ -242,7 +257,7 @@ function send(){
               <div className="inner-element">
                 <div className="icon"><i className="fa-solid fa-key"></i></div>
                 <div className="input">
-                  <input type="password" placeholder="Enter Password" onClick={handleChange} id="password"  name='password' required/>
+                  <input type="password" placeholder="Enter Password" onChange={handleChange} id="password"  name='password' required/>
                 </div>
                 {/* <div className="icon-right" onClick={showPassword1}><i className="fa-solid fa-eye-slash eye1" ></i></div> */}
               </div>

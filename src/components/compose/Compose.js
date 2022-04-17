@@ -1,6 +1,9 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import './compose.css';
 const Compose = (props) => {
+    useEffect(() => {
+        document.title = "Compose | Daily Blogs"
+    }, []);
     return (
         <div className='compose-container'>
             <div className="compose">

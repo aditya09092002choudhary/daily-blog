@@ -1,8 +1,13 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import '../auth/auth.css';
 // import './contact.css';
 
 const Contact = () => {
+  const [width, setwidth] = useState("");
+  useEffect(() => {
+    setwidth(window.innerWidth);
+    document.title = "Contact us | Daily Blogs"
+}, []);
     return (
         <div className="container">
       <div className="inner-container">
@@ -34,7 +39,7 @@ const Contact = () => {
               </div>
               <div className="textarea">
                   <label htmlFor="feedback">Message</label>
-                  <textarea name=""  cols="30" rows="10" id="feedback" placeholder='Type Message ...'></textarea>
+                  <textarea name=""  cols="30" rows={(width<400)?"6":"10"} id="feedback" placeholder='Type Message ...'></textarea>
               </div>
               <div className="button">
                 <button type="submit" >Submit <i className="fa-solid fa-paper-plane"></i></button>

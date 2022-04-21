@@ -1,5 +1,6 @@
 .home-container h1 {
   text-align: start !important;
+  /* line-height: .8; */
   font-family: "Courier New", Courier, monospace !important;
 }
 .home-container .inner-container {
@@ -14,9 +15,23 @@
   justify-content: space-between;
   align-items: center;
 }
+.home-container h2{
+  line-height: .7;
+  margin-bottom: 10px;
+}
+.home-container p{
+  line-height: .9;
+}
+span.addDate{
+  color: rgb(150, 150, 150);
+  font-size: .8rem;
+  margin-left: 10px;
+  line-height: 0;
+
+}
 .inner-container .top button {
   /* background: rgb(255, 42, 85); */
-  background-color: peru;
+  background-color: rgb(255, 51, 92);
   color: white;
   border: none;
   padding: 10px;

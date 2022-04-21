@@ -1,13 +1,36 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import './navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 
 const Navbar = (props) => {
+    const navigate=useNavigate();
     const link = [{name:"Home",link:"/"},{name:"About Us",link:"/about"},{name:"Contact Us",link:"/contact"},{name:"News",link:"/news"},{name:"Login",link:"/login"},{name:"Register",link:"/register"},{name:"Logout",link:"/logout"}]
-    const [state, setstate] = useState(2);
-    let status=props.logStatus;
-    console.log(props.logStatus);
+    const [state, setstate] = useState(0);
+    // const [status,setStatus]=useState(0);
+    const status=props.login;
+    // useEffect(()=>{
+    //     const token = localStorage.getItem('token');
+    //     axios.get('http://localhost:1337/protected',{headers:{
+    //         Authorization:token,
+    //     }}).then(res=>{
+    //         console.log(res);
+    //         if(res.data.success===true){
+    //             setStatus(1);
+    //             props.logStatus(1);
+    //             props.Name(res.data.user.fName)
+    //             props.UID(res.data.user.id);
+    //             // navigate('/');
+    //         }
+    //     }).catch(err=>{
+    //         console.log(err);
+    //         // navigate("/login");
+    //     })
+    // },[]);
+    // console.log(state);
     function handleClick(){
         setstate(()=>{
             if(state===2){
@@ -19,6 +42,10 @@ const Navbar = (props) => {
             }
         });
     }
+
+    // axios.get('http://localhost:4000/').then((response)=>{
+    //     console.log(response);
+    // })
     return (
         <nav className="navbar">
             <div className="container">

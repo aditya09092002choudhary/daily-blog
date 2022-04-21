@@ -1,14 +1,16 @@
-import Axios from 'axios';
+import axios from 'axios';
 import React,{useState,useEffect} from 'react';
 import './auth.css';
+import { useNavigate } from 'react-router-dom';
 
-// const baseUrl="https://daily-blog-backend.herokuapp.com/";
-const baseUrl = "http://localhost:4000/login";
+const baseUrl="https://daily-blog-backend.herokuapp.com/";
+// const baseUrl = "http://localhost:1337/";
 const Login = () => {
+  const navigate=useNavigate();
   useEffect(() => {
     document.title = "Login | Daily Blogs"
 }, []);
-  const [valid,setvalid]=useState(0);
+  const [valid,setvalid]=useState("");
   const [auth, setauth] = useState({
     username:"",
     password:""
@@ -29,28 +31,56 @@ const Login = () => {
       }
     })
   }
-  function send(e){
-    e.preventDefault();
-    console.log(auth);
-    Axios.post("http://localhost:4000/login", auth)
-    .then(function (response) {
-      if(response.data==="Success"){
-        window.location.href="/";
-      }else{
-        setvalid(response.data);
-      }
+  useEffect(()=>{
+    const token = localStorage.getItem('token');
+    axios.get(baseUrl+'protected',{headers:{
+        Authorization:token,
+    }}).then(res=>{
+        console.log(res);
+        if(res.data.success===true){
+            // setStatus(1);
+            // props.logStatus(1);
+            window.location.href="/";
+          }
+    }).catch(err=>{
+        console.log(err);
+        navigate("/login");
     })
-    .catch(function (error) {
-      setvalid(401);
-    });
-  }
+},[]);
+	async function loginUser(event) {
+		event.preventDefault()
+
+		const response = await fetch(baseUrl+'login', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(auth),
+		})
+    // console.log(response);
+
+		const data = await response.json()
+    console.log(data);
+    localStorage.setItem('token',data.token);
+    if(data.success===true){
+      window.location.href="/";
+    }
+
+	// 	if (data.user) {
+	// 		localStorage.setItem('token', data.user)
+	// 		alert('Login successful')
+	// 		window.location.href = '/'
+	// 	} else {
+  //     setvalid('Please check your username and password');
+	// 	}
+	}
     return (
         <div  className="container">
       <div  className="inner-container" style={{height:"80%",display:"flex",flexDirection:"column",justifyContent:"center"}}>
         <div  className="heading"><h1>Login</h1></div>
         <div  className="form-container">
-         {(valid==="Success")?<p style={{color:"red"}}>&nbsp;Incorrect username or password.</p>:""} 
-          <form method='post' className="signup-form">
+         <p style={{color:"red"}}>&nbsp;{valid}</p> 
+          <form method='post' onSubmit={loginUser} className="signup-form">
             <div  className="form-element">
               <div id="emailMsg"  className="err"></div>
               <div  className="inner-element">
@@ -70,7 +100,7 @@ const Login = () => {
                 <input type="checkbox" name="check" id="check" /> <label htmlFor="check">Remember me</label>
               </div>
               <div  className="button">
-                <button type="submit" onClick={send}>Submit <i  className="fa-solid fa-paper-plane"></i></button>
+                <button type="submit">Submit <i  className="fa-solid fa-paper-plane"></i></button>
               </div>
             </div>
           </form>

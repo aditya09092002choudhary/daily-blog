@@ -2,6 +2,11 @@ html,body{
     padding: 0;
     margin: 0;
 }
+h1 {
+    /* text-align: start !important; */
+    /* line-height: .8; */
+    font-family: "Courier New", Courier, monospace !important;
+  }
 #root{
     min-height: 100vh;
     display: grid;
@@ -10,8 +15,8 @@ html,body{
     flex-direction: column;
     justify-content: space-between;
 }
- @media screen and (max-width:650px) {
+ /* @media screen and (max-width:650px) {
 #root{
     grid-template-rows: .1fr 7fr .1fr;
     }
-} 
+}  */

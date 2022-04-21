@@ -6,3 +6,15 @@
 .post-container p{
     margin:0 20px;
 }
+
+@media screen and (max-width:650px) {
+    .post-container{
+        padding: 3px 12px;
+    }
+    .post-container h1{
+        font-size: 1.5rem;
+    }
+    .post-container p{
+        margin: 0 10px 10px;
+    }
+}

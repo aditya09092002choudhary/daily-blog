@@ -17,7 +17,7 @@ const Compose = (props) => {
     }, []);
     useEffect(()=>{
         const token = localStorage.getItem('token');
-        axios.get(baseUrl+"protected",{headers:{
+        axios.get("https://daily-blog-backend.herokuapp.com/protected",{headers:{
             Authorization:token,
         }}).then(res=>{
             console.log(res);

@@ -52,7 +52,7 @@ const Compose = (props) => {
                     </div>
                 </div>
                 <div className="button-container">
-                    <a href="/"><button onClick={saveBlog} style={{background:"darkcyan"}}>Submit</button></a>
+                    <a href=""><button onClick={saveBlog} style={{background:"darkcyan"}}>Submit</button></a>
                     <a href="/"><button>Cancel</button></a>
                 </div>
             </div>

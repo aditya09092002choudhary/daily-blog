@@ -31,14 +31,12 @@ const Compose = (props) => {
         })
     },[]);
     function saveBlog(){
-    //    if(props.login===1){
 
-           axios.post(baseUrl+"compose",{title,content,username}).then((response)=>{
-               console.log(response);
-            }).catch((err)=>{
-                console.log(err);
-            })
-        // }
+        axios.post(baseUrl+"compose",{title,content,username}).then((response)=>{
+            console.log(response);
+        }).catch((err)=>{
+            console.log(err);
+        })
     }
     return (
         <div className='compose-container'>

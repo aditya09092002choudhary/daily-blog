@@ -3,7 +3,7 @@ import React,{useState,useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import './compose.css';
 
-const baseUrl="https://daily-blog-backend.herokuapp.com/";
+// const baseUrl="https://daily-blog-backend.herokuapp.com/";
 // const baseUrl = "http://localhost:1337/";
 
 const Compose = (props) => {
@@ -21,9 +21,6 @@ const Compose = (props) => {
             Authorization:token,
         }}).then(res=>{
             console.log(res);
-            // if(res.data.success===true){
-            //     // navigate('/');
-            // }
             setusername(res.data.user.id);
         }).catch(err=>{
             console.log(err);
@@ -32,7 +29,7 @@ const Compose = (props) => {
     },[]);
     function saveBlog(){
 
-        axios.post(baseUrl+"compose",{title,content,username}).then((response)=>{
+        axios.post("https://daily-blog-backend.herokuapp.com/compose",{title,content,username}).then((response)=>{
             console.log(response);
         }).catch((err)=>{
             console.log(err);

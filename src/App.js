@@ -29,7 +29,7 @@ const App = () => {
       axios.get(baseUrl,{headers:{
           Authorization:token,
       }}).then(res=>{
-          console.log(res);
+          // console.log(res);
           if(res.data.success===true){
             setLogin(1);
             setName(res.data.user.fName);
@@ -51,7 +51,7 @@ const App = () => {
     function UID(e){
       setuid(e);
     }
-    console.log(login);
+    // console.log(login);
     return (
     <React.StrictMode>
       <Router>

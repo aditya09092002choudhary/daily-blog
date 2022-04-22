@@ -12,7 +12,7 @@ const Home = (props) => {
     const [content, setcontent] = useState([]);
     useEffect(() => {
         axios.get(baseUrl).then((response)=>{
-            console.log(response);
+            // console.log(response);
             setcontent(response.data);
         })
     },[]);

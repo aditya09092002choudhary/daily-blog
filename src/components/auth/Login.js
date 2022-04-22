@@ -3,8 +3,8 @@ import React,{useState,useEffect} from 'react';
 import './auth.css';
 import { useNavigate } from 'react-router-dom';
 
-const baseUrl="https://daily-blog-backend.herokuapp.com/";
-// const baseUrl = "http://localhost:1337/";
+// const baseUrl="https://daily-blog-backend.herokuapp.com/";
+const baseUrl = "http://localhost:1337/";
 const Login = () => {
   const navigate=useNavigate();
   useEffect(() => {

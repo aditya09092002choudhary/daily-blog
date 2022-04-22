@@ -16,11 +16,8 @@
   align-items: center;
 }
 .home-container h2{
-  line-height: .7;
+  /* line-height: .9; */
   margin-bottom: 10px;
-}
-.home-container p{
-  line-height: .9;
 }
 span.addDate{
   color: rgb(150, 150, 150);
@@ -63,7 +60,7 @@ span.addDate{
     font-size: 1.9rem;
   }
   h2 {
-    font-size: 1.3rem;
+    font-size: 1.3rem !important;
   }
   .inner-container .top button {
     padding: 7px;

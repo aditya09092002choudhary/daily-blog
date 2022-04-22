@@ -3,6 +3,12 @@
     padding: 3px 15px;
     margin-top: 20px;
 }
+.post-container .exit{
+    text-align: end;
+    color: red;
+    font-size: 2rem;
+    margin: 0;
+}
 .post-container p{
     margin:0 20px;
 }

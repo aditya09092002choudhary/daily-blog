@@ -42,6 +42,28 @@ ul li a{
 /* .sidebar{
     display: none;
 } */
+.loader{
+    position: absolute;
+    top: 5px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    visibility: hidden;
+}
+.loader div{
+    background: black;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+
+}
+.loader div img{
+    border-radius: 100%;
+}
 .sidebar{
     height: 0;
     border: 1px solid transparent !important;

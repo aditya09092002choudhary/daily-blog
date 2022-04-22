@@ -8,29 +8,13 @@ import { useNavigate } from 'react-router-dom';
 
 const Navbar = (props) => {
     const navigate=useNavigate();
-    const link = [{name:"Home",link:"/"},{name:"About Us",link:"/about"},{name:"Contact Us",link:"/contact"},{name:"News",link:"/news"},{name:"Login",link:"/login"},{name:"Register",link:"/register"},{name:"Logout",link:"/logout"}]
+    const link = [{name:"Home",link:"/"},{name:"About Us",link:"/about"},{name:"Contact Us",link:"/contact"},{name:"News",link:"/news"},{name:"Login",link:"/login"},{name:"Register",link:"/register"}]
     const [state, setstate] = useState(0);
     // const [status,setStatus]=useState(0);
     const status=props.login;
-    // useEffect(()=>{
-    //     const token = localStorage.getItem('token');
-    //     axios.get('http://localhost:1337/protected',{headers:{
-    //         Authorization:token,
-    //     }}).then(res=>{
-    //         console.log(res);
-    //         if(res.data.success===true){
-    //             setStatus(1);
-    //             props.logStatus(1);
-    //             props.Name(res.data.user.fName)
-    //             props.UID(res.data.user.id);
-    //             // navigate('/');
-    //         }
-    //     }).catch(err=>{
-    //         console.log(err);
-    //         // navigate("/login");
-    //     })
-    // },[]);
-    // console.log(state);
+    function loading(){
+        document.querySelector('.loader').style.visibility="visible";
+    }
     function handleClick(){
         setstate(()=>{
             if(state===2){
@@ -42,19 +26,25 @@ const Navbar = (props) => {
             }
         });
     }
-
+    function logout(){
+        loading();
+        localStorage.removeItem('token');
+        window.location.href="/";
+    }
     // axios.get('http://localhost:4000/').then((response)=>{
     //     console.log(response);
     // })
     return (
         <nav className="navbar">
+            <div className="loader"><div><img src="https://i.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.webp" width={25} alt="loading" /></div></div>
             <div className="container">
                 <div className="logo"><a href="/"><h2>Daily Blogs</h2></a></div>
                 <div className="nav-items">
                     <ul className="nav-list">
                         {link.map((link,i)=>{
-                            return (status===1&&(link.name==="Login"||link.name==="Register"))?"":(status===0&&link.name==="Logout")?"":<li key={i} className="nav-items"><a href={link.link}> {link.name}</a></li>
+                            return (status===1&&(link.name==="Login"||link.name==="Register"))?"":(status===0&&link.name==="Logout")?"":<li key={i} className="nav-items" onClick={loading}><a href={link.link}> {link.name}</a></li>
                         })}
+                        {(status===1)?<li className='nav-items'><a href="/logout">Logout</a></li>:""}
                     </ul>
                 </div>
                 <div className="toggle" onClick={handleClick}><FontAwesomeIcon icon={faBars} /></div>
@@ -62,8 +52,9 @@ const Navbar = (props) => {
             <div className={(state===1)?"display sidebar":(state!==2)?"hide sidebar":"sidebar"} >
                    <ul className="nav-list" style={{display:(state===1)?"block":"none"}}>
                         {link.map((link,i)=>{
-                            return (status===1&&(link.name==="Login"||link.name==="Register"))?"":(status===0&&link.name==="Logout")?"":<li key={i} className="nav-items"><a href={link.link}> {link.name}</a></li>
+                            return (status===1&&(link.name==="Login"||link.name==="Register"))?"":<li key={i} className="nav-items" onClick={loading}><a href={link.link}> {link.name}</a></li>
                         })}
+                        {(status===1)?<li className='nav-items' onClick={logout}>Logout</li>:""}
                     </ul>
             </div>
         </nav>

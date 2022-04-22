@@ -12,7 +12,7 @@ import Post from "./components/posts/Post";
 import News from "./components/news/News";
 import Compose from "./components/compose/Compose";
 import Edit from "./components/compose/Edit";
-import Logout from "./components/auth/Logout";
+// import Logout from "./components/auth/Logout";
 import Delete from "./components/posts/Delete";
 import axios from "axios";
  const baseUrl="https://daily-blog-backend.herokuapp.com/protected";
@@ -64,7 +64,7 @@ const App = () => {
           <Route path="about" element={<About />} />
           <Route path="news" element={<News />} />
           <Route path="compose" element={<Compose login ={login} uid={uid}/>} />
-          <Route path="logout" element={<Logout />} />
+          {/* <Route path="logout" element={<Logout />} /> */}
           <Route path="edit/:id" element={<Edit />} />
           <Route path="remove/:id" element={<Delete />} />
           <Route path={`posts/:id`} element={<Post />}/>

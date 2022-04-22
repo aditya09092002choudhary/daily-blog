@@ -3,8 +3,8 @@ import React,{useState,useEffect} from 'react';
 import './auth.css';
 import { useNavigate } from 'react-router-dom';
 
-// const baseUrl="https://daily-blog-backend.herokuapp.com/";
-const baseUrl = "http://localhost:1337/";
+const baseUrl="https://daily-blog-backend.herokuapp.com/";
+// const baseUrl = "http://localhost:1337/";
 const Login = () => {
   const navigate=useNavigate();
   useEffect(() => {
@@ -41,6 +41,8 @@ const Login = () => {
             // setStatus(1);
             // props.logStatus(1);
             window.location.href="/";
+          }else{
+            alert("Invalid username or password !");
           }
     }).catch(err=>{
         console.log(err);

@@ -44,7 +44,7 @@ const Navbar = (props) => {
                         {link.map((link,i)=>{
                             return (status===1&&(link.name==="Login"||link.name==="Register"))?"":(status===0&&link.name==="Logout")?"":<li key={i} className="nav-items" onClick={loading}><a href={link.link}> {link.name}</a></li>
                         })}
-                        {(status===1)?<li className='nav-items'>Logout</li>:""}
+                        {(status===1)?<li className='nav-items logout' onClick={logout}>Logout</li>:""}
                     </ul>
                 </div>
                 <div className="toggle" onClick={handleClick}><FontAwesomeIcon icon={faBars} /></div>
@@ -54,7 +54,7 @@ const Navbar = (props) => {
                         {link.map((link,i)=>{
                             return (status===1&&(link.name==="Login"||link.name==="Register"))?"":<li key={i} className="nav-items" onClick={loading}><a href={link.link}> {link.name}</a></li>
                         })}
-                        {(status===1)?<li className='nav-items' onClick={logout}>Logout</li>:""}
+                        {(status===1)?<li className='nav-items logout' onClick={logout}>Logout</li>:""}
                     </ul>
             </div>
         </nav>

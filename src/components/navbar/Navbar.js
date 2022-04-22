@@ -44,7 +44,7 @@ const Navbar = (props) => {
                         {link.map((link,i)=>{
                             return (status===1&&(link.name==="Login"||link.name==="Register"))?"":(status===0&&link.name==="Logout")?"":<li key={i} className="nav-items" onClick={loading}><a href={link.link}> {link.name}</a></li>
                         })}
-                        {(status===1)?<li className='nav-items'><a href="/logout">Logout</a></li>:""}
+                        {(status===1)?<li className='nav-items'>Logout</li>:""}
                     </ul>
                 </div>
                 <div className="toggle" onClick={handleClick}><FontAwesomeIcon icon={faBars} /></div>

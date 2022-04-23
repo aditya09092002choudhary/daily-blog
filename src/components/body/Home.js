@@ -32,7 +32,7 @@ const Home = (props) => {
     }
     function setter(e){
         setdid(e);
-        const tmp = window.confirm("Are you want to permanently delete this post.");
+        const tmp = window.confirm("Are you sure you want to permanently delete this post.");
         setremove(tmp);
     }
 

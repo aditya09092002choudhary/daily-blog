@@ -33,7 +33,7 @@ function News(){
                     </div>
                     <div className="desc"><p>{`${val.description}`.substring(0,150)+"..."}</p></div>
                     <div className="link">
-                        <a href={val.link} target="_blank" rel="noreferrer"><button>View</button></a>
+                        <a href={val.link} target="_blank" rel="noreferrer"><button style={{cursor:"pointer"}}>View</button></a>
                     </div>
                     </div>
                 </div>

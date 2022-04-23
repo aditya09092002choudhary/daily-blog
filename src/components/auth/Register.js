@@ -1,7 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import './auth.css';
 import axios from 'axios';
-// import { useHistory } from 'react-router-dom'
 
 const baseUrl="https://daily-blog-backend.herokuapp.com/";
 // const baseUrl = "http://localhost:1337/";
@@ -16,7 +15,6 @@ const [auth, setauth] = useState({
   username:"",
   password:""
 });
-// const history = useHistory()
 
 function handleChange(e){
   const {name,value}=e.target;

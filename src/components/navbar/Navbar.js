@@ -1,16 +1,13 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 import './navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+// import axios from 'axios';
 
 
 const Navbar = (props) => {
-    const navigate=useNavigate();
     const link = [{name:"Home",link:"/"},{name:"About Us",link:"/about"},{name:"Contact Us",link:"/contact"},{name:"News",link:"/news"},{name:"Login",link:"/login"},{name:"Register",link:"/register"}]
     const [state, setstate] = useState(0);
-    // const [status,setStatus]=useState(0);
     const status=props.login;
     function loading(){
         document.querySelector('.loader').style.visibility="visible";

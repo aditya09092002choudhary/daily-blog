@@ -6,7 +6,6 @@ import axios from 'axios';
  const baseUrl="https://daily-blog-backend.herokuapp.com/";
 // const baseUrl = "http://localhost:1337/";
 const Home = (props) => {
-    // const [logs,setLogs]=useState(0);
     const logs=props.login;
     // console.log(props.logset);
     const [content, setcontent] = useState([]);
@@ -16,6 +15,27 @@ const Home = (props) => {
             setcontent(response.data);
         })
     },[]);
+
+    // -----------------------------------------  Delete post --------------------------------
+
+    const[remove,setremove] = useState(false);
+    const[did,setdid] = useState(0);
+
+    function deleteBlog(){
+        axios.get(baseUrl+"remove/"+did).then((res)=>{
+            window.location.reload();
+        })
+    }
+    
+    if(remove===true){
+        deleteBlog();
+    }
+    function setter(e){
+        setdid(e);
+        const tmp = window.confirm("Are you want to permanently delete this post.");
+        setremove(tmp);
+    }
+
 
     return (
         <div className="home-container">
@@ -34,7 +54,7 @@ const Home = (props) => {
                                 <span className="addDate">added on : {val.addDate}</span>
                                     <div className="post-details">
                                     <p>{`${val.content}`.substring(0,70)+ "..."} <a href={`posts/${val._id}`} style={{color:"blue",whiteSpace:"nowrap"}}>Read More</a></p>
-                                    {(logs===1&&val.author_id===props.uid)?<p><a href={"edit/"+val._id}><span style={{color:"blue"}}><FontAwesomeIcon icon={faPen}/></span></a><a href={"remove/"+val._id}><span className='span2' style={{color:"red"}}><FontAwesomeIcon icon={faTrashCan} /></span></a></p>:''}
+                                    {(logs===1&&val.author_id===props.uid)?<p><a href={"edit/"+val._id}><span style={{color:"blue"}}><FontAwesomeIcon icon={faPen}/></span></a><span className='span2' onClick={()=>{setter(val._id)} }style={{color:"red",cursor:"pointer"}}><FontAwesomeIcon icon={faTrashCan} /></span></p>:''}
                                     </div>
                                    </div>
                         })

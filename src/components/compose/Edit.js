@@ -1,46 +1,26 @@
 import axios from 'axios';
 import React,{useState,useEffect} from 'react';
 import './compose.css';
-import { useParams,useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const baseUrl="https://daily-blog-backend.herokuapp.com/edit/";
 // const baseUrl = "http://localhost:1337/edit/";
 const Edit = () => {
-    const navigate=useNavigate();
-    const [article, setArticle] = useState({});
     const { id } = useParams();
     console.log(id);
     const endpoint = baseUrl+id;
-    useEffect(() => {
-        document.title = "Edit post | Daily Blogs"
-        axios.get(endpoint).then((response)=>{
-            console.log(response);
-            setArticle(response.data);
-        })
-    }, []);
-    console.log(article.title,article.content);
     const [data, setdata] = useState({
         title:"",
         content:""
     });
-    // useEffect(()=>{
-    //     const token = localStorage.getItem('token');
-    //     axios.get('http://localhost:1337/protected',{headers:{
-    //         Authorization:token,
-    //     }}).then(res=>{
-    //         console.log(res);
-    //         // if(res.data.success===true){
-    //         //     // navigate('/');
-    //         // }
-    //     }).catch(err=>{
-    //         console.log(err);
-    //         navigate("/login");
-    //     })
-    // },[]);
-    useEffect(()=>{
-        data.title=article.title;
-        data.content=article.content;
-    },[] );
+    useEffect(() => {
+        document.title = "Edit post | Daily Blogs"
+        axios.get(endpoint).then((response)=>{
+            console.log(response);
+            data.title=response.data.title;
+            data.content=response.data.content;
+        })
+    }, []);
     function handleChange(e){
         const {name,value}=e.target;
         console.log(e.target);
@@ -72,7 +52,7 @@ const Edit = () => {
                 <div className="title-container">
                     <label htmlFor="title">Title</label>
                     <div className="input">
-                        <input type="text" name="title" id='input' onChange={handleChange} value={data.title} placeholder='Title...' />
+                        <input type="text" name="title" id='title' onChange={handleChange} value={data.title} placeholder='Title...' />
                     </div>
                 </div>
                 <div className="content-container">

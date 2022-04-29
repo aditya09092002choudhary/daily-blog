@@ -10,7 +10,9 @@ const Compose = (props) => {
     const navigate=useNavigate();
     const [title, settitle] = useState("");
     const [content, setcontent] = useState("");
-    const [username, setusername] = useState();
+    const [username, setusername] = useState("");
+    const [fName, setfName] = useState("");
+    const [lName, setlName] = useState("");
     console.log(title,content);
     useEffect(() => {
         document.title = "Compose | Daily Blogs"
@@ -22,6 +24,8 @@ const Compose = (props) => {
         }}).then(res=>{
             console.log(res);
             setusername(res.data.user.id);
+            setfName(res.data.user.fName);
+            setlName(res.data.user.lName);
         }).catch(err=>{
             console.log(err);
             navigate("/login");
@@ -29,7 +33,7 @@ const Compose = (props) => {
     },[]);
     function saveBlog(){
 
-        axios.post(baseUrl+"compose",{title,content,username}).then((response)=>{
+        axios.post(baseUrl+"compose",{title,content,username,fName,lName}).then((response)=>{
             console.log(response);
         }).catch((err)=>{
             console.log(err);

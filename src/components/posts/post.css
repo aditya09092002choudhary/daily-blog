@@ -7,6 +7,7 @@
     text-align: end;
     color: red;
     font-size: 2rem;
+    cursor: pointer;
     margin: 0;
 }
 .post-container p{

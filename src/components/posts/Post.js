@@ -19,7 +19,7 @@ const Post = () => {
     }, []);
     return (
         <div className='post-container'>
-            <div className="exit"><a href="/"><FontAwesomeIcon icon={faXmark} /></a></div>
+            <div className="exit"><span onClick={()=>window.history.back()}><FontAwesomeIcon icon={faXmark} /></span></div>
             <h1>{blog.title}</h1>
             <p>{blog.content}</p>
         </div>

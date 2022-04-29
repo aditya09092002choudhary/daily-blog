@@ -51,7 +51,7 @@ const Home = (props) => {
                         content.map((val,i)=>{
                             return <div className="post" key={i}>
                                     <h2>{val.title}</h2>
-                                <span className="addDate" style={{display:(val.author==="")?"none":"inherits"}}>posted by <h5 style={{display:"inline"}}>{val.author}</h5> on {val.addDate}</span>
+                                <span className="addDate" style={{display:(val.author===""||i===0)?"none":"inherits"}}>posted <span style={{display:(val.author==="")?"":"inline"}}>by </span> <h5 style={{display:(val.author==="")?"":"inline"}}>{val.author}</h5> on {val.addDate}</span>
                                     <div className="post-details">
                                     <p>{`${val.content}`.substring(0,70)+ "..."} <a href={`posts/${val._id}`} style={{color:"blue",whiteSpace:"nowrap"}}>Read More</a></p>
                                     {(logs===1&&val.author_id===props.uid)?<p><a href={"edit/"+val._id}><span style={{color:"blue"}}><FontAwesomeIcon icon={faPen}/></span></a><span className='span2' onClick={()=>{setter(val._id)} }style={{color:"red",cursor:"pointer"}}><FontAwesomeIcon icon={faTrashCan} /></span></p>:''}

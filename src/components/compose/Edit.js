@@ -63,7 +63,7 @@ const Edit = () => {
                 </div>
                 <div className="button-container">
                     <a href="/"><button style={{background:"darkcyan"}} onClick={send}>Submit</button></a>
-                    <a href="/"><button>Cancel</button></a>
+                    <span onClick={()=>window.history.back()}><button>Cancel</button></span>
                 </div>
             </div>
         </div>

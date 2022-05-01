@@ -7,7 +7,7 @@ const baseUrl="https://daily-blog-backend.herokuapp.com/edit/";
 // const baseUrl = "http://localhost:1337/edit/";
 const Edit = () => {
     const { id } = useParams();
-    console.log(id);
+    // console.log(id);
     const endpoint = baseUrl+id;
     const [data, setdata] = useState({
         title:"",
@@ -16,14 +16,14 @@ const Edit = () => {
     useEffect(() => {
         document.title = "Edit post | Daily Blogs"
         axios.get(endpoint).then((response)=>{
-            console.log(response);
+            // console.log(response);
             data.title=response.data.title;
             data.content=response.data.content;
         })
     }, []);
     function handleChange(e){
         const {name,value}=e.target;
-        console.log(e.target);
+        // console.log(e.target);
         setdata((prev)=>{
             if(name==="title"){
                 return {
@@ -38,13 +38,25 @@ const Edit = () => {
             }
         })
     }
-    console.log(data);
+    // console.log(data);
     function send(){
         axios.post(endpoint,data).then((response)=>{
-            console.log(response);
+            // console.log(response);
+            if(response.data==="Success"){
+                window.location.href="/";
+            }else{
+                window.alert("Internal error!, Please try again later");
+            }
         })
     }
-    
+    const [cnf, setcnf] = useState(false);
+    function confirmation(){
+        let chk=window.confirm("Are you sure, you wants to update this post.");
+        setcnf(chk);
+    }
+    if(cnf===true){
+        send();
+    }
     return (
         <div className='compose-container'>
             <div className="compose">
@@ -62,7 +74,7 @@ const Edit = () => {
                     </div>
                 </div>
                 <div className="button-container">
-                    <a href="/"><button style={{background:"darkcyan"}} onClick={send}>Submit</button></a>
+                    <span><button style={{background:"darkcyan"}} onClick={confirmation}>Submit</button></span>
                     <span onClick={()=>window.history.back()}><button>Cancel</button></span>
                 </div>
             </div>

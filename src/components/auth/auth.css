@@ -18,6 +18,10 @@ html,body{
     width: 35%;
     margin: 20px auto;
     background: var(--lightColor);
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-direction: column;
 }
 
 .inner-container .heading h1{
@@ -147,6 +151,9 @@ textarea{
     .container .inner-container{
         width: 95%;
     }
+.inner-container .heading h1{
+    line-height: 0;
+}
     .form-element .name{
         display: block;
     }

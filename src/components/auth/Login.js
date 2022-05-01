@@ -10,7 +10,8 @@ const Login = () => {
   useEffect(() => {
     document.title = "Login | Daily Blogs"
 }, []);
-  const [valid,setvalid]=useState("");
+  const [valid,setvalid]=useState(true);
+  const [errmsg, seterrmsg] = useState("");
   const [auth, setauth] = useState({
     username:"",
     password:""
@@ -36,22 +37,19 @@ const Login = () => {
     axios.get(baseUrl+'protected',{headers:{
         Authorization:token,
     }}).then(res=>{
-        console.log(res);
+        // console.log(res);
         if(res.data.success===true){
-            // setStatus(1);
-            // props.logStatus(1);
+            
             window.location.href="/";
-          }else{
-            alert("Invalid username or password !");
           }
     }).catch(err=>{
-        console.log(err);
+        // console.log(err);
         navigate("/login");
     })
 },[]);
 	async function loginUser(event) {
 		event.preventDefault()
-
+    document.querySelector(".loading-gif").style.display="unset";
 		const response = await fetch(baseUrl+'login', {
 			method: 'POST',
 			headers: {
@@ -67,21 +65,20 @@ const Login = () => {
     if(data.success===true){
       window.location.href="/";
     }
-
-	// 	if (data.user) {
-	// 		localStorage.setItem('token', data.user)
-	// 		alert('Login successful')
-	// 		window.location.href = '/'
-	// 	} else {
-  //     setvalid('Please check your username and password');
-	// 	}
+    if(data.success===false){
+    document.querySelector(".loading-gif").style.display="none";
+      seterrmsg(data.message);
+      setvalid(false);
+    }
 	}
+
     return (
         <div  className="container">
-      <div  className="inner-container" style={{height:"80%",display:"flex",flexDirection:"column",justifyContent:"center"}}>
+      <div  className="inner-container" style={{height:"80%"}}>
+        <div className="loading-gif" style={{textAlign:"center",display:"none"}}><img src="https://www.netatwork.com/uploads/AAPL/loaders/loading_ajax.gif" width={35} alt="loading" /></div>
         <div  className="heading"><h1>Login</h1></div>
         <div  className="form-container">
-         <p style={{color:"red"}}>&nbsp;{valid}</p> 
+         <p style={{color:"red",textAlign:'center'}}>&nbsp;{(valid===false)?errmsg+"!":""}</p> 
           <form method='post' onSubmit={loginUser} className="signup-form">
             <div  className="form-element">
               <div id="emailMsg"  className="err"></div>
@@ -98,9 +95,9 @@ const Login = () => {
                   <input type="password" onChange={handleChange} name='password' placeholder="Enter Password" id="password"  required/>
                 </div>
               </div>
-              <div  className="checkbox">
+              {/* <div  className="checkbox">
                 <input type="checkbox" name="check" id="check" /> <label htmlFor="check">Remember me</label>
-              </div>
+              </div> */}
               <div  className="button">
                 <button type="submit">Submit <i  className="fa-solid fa-paper-plane"></i></button>
               </div>

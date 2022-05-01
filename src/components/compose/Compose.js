@@ -13,7 +13,7 @@ const Compose = (props) => {
     const [username, setusername] = useState("");
     const [fName, setfName] = useState("");
     const [lName, setlName] = useState("");
-    console.log(title,content);
+    // console.log(title,content);
     useEffect(() => {
         document.title = "Compose | Daily Blogs"
     }, []);
@@ -22,19 +22,24 @@ const Compose = (props) => {
         axios.get(baseUrl+"protected",{headers:{
             Authorization:token,
         }}).then(res=>{
-            console.log(res);
+            // console.log(res);
             setusername(res.data.user.id);
             setfName(res.data.user.fName);
             setlName(res.data.user.lName);
         }).catch(err=>{
-            console.log(err);
+            // console.log(err);
             navigate("/login");
         })
     },[]);
     function saveBlog(){
 
         axios.post(baseUrl+"compose",{title,content,username,fName,lName}).then((response)=>{
-            console.log(response);
+            // console.log(response);
+            if(response.data==="Saved"){
+                window.location.href="/";
+            }else{
+                window.alert("Internal Error!, Please try again later.");
+            }
         }).catch((err)=>{
             console.log(err);
         })
@@ -56,7 +61,7 @@ const Compose = (props) => {
                     </div>
                 </div>
                 <div className="button-container">
-                    <a href="/"><button onClick={saveBlog} style={{background:"darkcyan"}}>Submit</button></a>
+                    <span><button onClick={saveBlog} style={{background:"darkcyan"}}>Submit</button></span>
                     <span onClick={()=>window.history.back()}><button>Cancel</button></span>
                 </div>
             </div>

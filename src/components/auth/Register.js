@@ -8,7 +8,8 @@ const Register = () => {
   useEffect(() => {
     document.title = "Register | Daily Blogs"
 }, []);
-const [valid, setvalid] = useState("");
+const [valid, setvalid] = useState(true);
+const [errmsg, seterrmsg] = useState("");
 const [auth, setauth] = useState({
   fName:"",
   lName:"",
@@ -50,47 +51,30 @@ function handleChange(e){
       }
     }
   })
-  console.log(auth);  
+  // console.log(auth);  
 }
 async function registerUser(event) {
-  event.preventDefault()
-
+  event.preventDefault();
+  document.querySelector(".loading-gif").style.display="unset";
   axios.post(baseUrl+'register',auth).then((res)=>{
     if(res.data.success===true){
       window.location.href="/login";
+    }else{
+    document.querySelector(".loading-gif").style.display="none";
+
+      setvalid(false);
+      seterrmsg(res.data.message);
     }
   })
-  // if (data.status === 'ok') {
-  //   // history.push('/login')
-  //   console.log('Hello');
-  //   // window.location.href="/login";
-  // }
 }
-// console.log(auth);
-// function send(){
-//   axios.post(baseUrl, auth)
-//   .then(function (response) {
-//     console.log(response);
-//     setvalid(response.data);
-//     if(valid==="1"){
-//       <Router>
-//         <Routes>
-//           <Route path='/login' element={<Navigate to={"/"} />} />
-//         </Routes>
-//       </Router>
-//     }
-//   })
-//   .catch(function (error) {
-//     console.log(error);
-//     alert(error.message);
-//   });
-// }
+
     return (
         <div className="container">
       <div className="inner-container">
+      <div className="loading-gif" style={{textAlign:"center",display:"none"}}><img src="https://www.netatwork.com/uploads/AAPL/loaders/loading_ajax.gif" width={35} alt="loading" /></div>
         <div className="heading"><h1>Register</h1></div>
         <div className="form-container">
-          {(valid!==""||valid!==1)?<p style={{color:"red"}}>{valid}</p>:""}
+          {(valid===false)?<p style={{color:"red",textAlign:"center",fontSize:"14px"}}>{errmsg+", Check your email"}</p>:""}
           <form onSubmit={registerUser} className="signup-form">
             <div className="form-element">
               <div id="fNameMsg" className="err"></div>
@@ -148,11 +132,11 @@ async function registerUser(event) {
                   <input type="radio" name="gender" id="female"   /> <label htmlFor="female" required ="required">Female</label>
                 </div>
               </div> */}
-              <div className="checkbox">
+              {/* <div className="checkbox">
                 <input type="checkbox" name="check" id="check" /> <label htmlFor="check">Remember me</label>
-              </div>
+              </div> */}
               <div className="button">
-                <button type="submit">Submit <i className="fa-solid fa-paper-plane"></i></button>
+                <button type="submit" >Submit <i className="fa-solid fa-paper-plane"></i></button>
               </div>
             </div>
           </form>

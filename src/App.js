@@ -36,19 +36,19 @@ const App = () => {
           }
           
       }).catch(err=>{
-          console.log(err);
+          // console.log(err);
           // navigate("/login");
       })
   },[]);
-    function logset(e){
-      setLogin(e);
-    }
-    function Name(e){
-      setName(e);
-    }
-    function UID(e){
-      setuid(e);
-    }
+    // function logset(e){
+    //   setLogin(e);
+    // }
+    // function Name(e){
+    //   setName(e);
+    // }
+    // function UID(e){
+    //   setuid(e);
+    // }
     // console.log(login);
     return (
     <React.StrictMode>

@@ -47,7 +47,7 @@ const Home = (props) => {
                 </div>
                 <div className="posts">
                     {
-                        (content.length===0)?<img width={20} style={{margin:"30px auto",display:"block"}} src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="fetching" />:
+                        (content.length===0)?<img width={30} style={{margin:"30px auto",display:"block"}} src="https://www.netatwork.com/uploads/AAPL/loaders/Thin%20broken%20ring.gif" alt="fetching" />:
                         content.map((val,i)=>{
                             return <div className="post" key={i}>
                                     <h2>{val.title}</h2>

@@ -21,7 +21,7 @@ const Post = () => {
         <div className='post-container'>
             <div className="exit"><span onClick={()=>window.history.back()}><FontAwesomeIcon icon={faXmark} /></span></div>
             <h1>{blog.title}</h1>
-            <p>{blog.content}</p>
+            <p style={{whiteSpace:"pre-line"}}>{blog.content}</p>
         </div>
     );
 }

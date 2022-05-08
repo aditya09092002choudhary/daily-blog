@@ -2,12 +2,14 @@ import axios from 'axios';
 import React,{useState,useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import './compose.css';
+import FileBase64 from 'react-file-base64';
 
 const baseUrl="https://daily-blog-backend.herokuapp.com/";
 // const baseUrl = "http://localhost:1337/";
 
 const Compose = (props) => {
     const navigate=useNavigate();
+    const [image, setimage] = useState([]);
     const [title, settitle] = useState("");
     const [content, setcontent] = useState("");
     const [username, setusername] = useState("");
@@ -31,14 +33,14 @@ const Compose = (props) => {
             navigate("/login");
         })
     },[]);
-    function saveBlog(){
-
-        axios.post(baseUrl+"compose",{title,content,username,fName,lName}).then((response)=>{
+    function saveBlog(e){
+        e.preventDefault();
+        axios.post(baseUrl+"compose",{image,title,content,username,fName,lName}).then((response)=>{
             // console.log(response);
             if(response.data==="Saved"){
                 window.location.href="/";
             }else{
-                window.alert("Internal Error!, Please try again later.");
+                console.log("Internal Error!, Please try again later.");
             }
         }).catch((err)=>{
             console.log(err);
@@ -46,8 +48,15 @@ const Compose = (props) => {
     }
     return (
         <div className='compose-container'>
+                {/* <form encType='multipart/form-data' style={{marginBottom:"20px"}}> */}
             <div className="compose">
                 <h1>Compose</h1>
+                <div className="image-container">
+                    <label htmlFor="title">Image</label>
+                    <div className="input">
+                    <FileBase64 multiple={ true } onDone={(base64)=>{setimage(base64)}}/>
+                    </div>
+                </div>
                 <div className="title-container">
                     <label htmlFor="title">Title</label>
                     <div className="input">
@@ -65,6 +74,7 @@ const Compose = (props) => {
                     <span onClick={()=>window.history.back()}><button>Cancel</button></span>
                 </div>
             </div>
+                {/* </form> */}
         </div>
     );
 }

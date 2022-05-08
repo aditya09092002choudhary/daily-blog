@@ -6,7 +6,8 @@ const baseUrl="https://daily-blog-backend.herokuapp.com/";
 // const baseUrl = "http://localhost:1337/";
 const Register = () => {
   useEffect(() => {
-    document.title = "Register | Daily Blogs"
+    document.title = "Register | Daily Blogs";
+    document.querySelectorAll(".nav-link")[5].style.color="wheat";
 }, []);
 const [valid, setvalid] = useState(true);
 const [errmsg, seterrmsg] = useState("");

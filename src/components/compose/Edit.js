@@ -2,12 +2,15 @@ import axios from 'axios';
 import React,{useState,useEffect} from 'react';
 import './compose.css';
 import { useParams } from 'react-router-dom';
+import FileBase64 from 'react-file-base64';
+
 
 const baseUrl="https://daily-blog-backend.herokuapp.com/edit/";
 // const baseUrl = "http://localhost:1337/edit/";
 const Edit = () => {
     const { id } = useParams();
     // console.log(id);
+    const [image, setimage] = useState([]);
     const endpoint = baseUrl+id;
     const [data, setdata] = useState({
         title:"",
@@ -17,6 +20,7 @@ const Edit = () => {
         document.title = "Edit post | Daily Blogs"
         axios.get(endpoint).then((response)=>{
             // console.log(response);
+            setimage(response.data.image);
             data.title=response.data.title;
             data.content=response.data.content;
         })
@@ -40,7 +44,7 @@ const Edit = () => {
     }
     // console.log(data);
     function send(){
-        axios.post(endpoint,data).then((response)=>{
+        axios.post(endpoint,{data,image}).then((response)=>{
             // console.log(response);
             if(response.data==="Success"){
                 window.location.href="/";
@@ -59,8 +63,15 @@ const Edit = () => {
     }
     return (
         <div className='compose-container'>
+
             <div className="compose">
                 <h1>Edit</h1>
+                <div className="image-container">
+                    <label htmlFor="title">Image</label>
+                    <div className="input">
+                    <FileBase64 multiple={ true } onDone={(base64)=>{setimage(base64)}}/>
+                    </div>
+                </div>
                 <div className="title-container">
                     <label htmlFor="title">Title</label>
                     <div className="input">

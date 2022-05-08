@@ -3,7 +3,8 @@ import './about.css';
 
 const About = () => {
   useEffect(() => {
-    document.title = "About | Daily Blogs"
+    document.title = "About | Daily Blogs";
+    document.querySelectorAll(".nav-link")[1].style.color="wheat";
 }, []);
   return (
     <div className="about-container">

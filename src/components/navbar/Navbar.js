@@ -39,7 +39,7 @@ const Navbar = (props) => {
                 <div className="nav-items">
                     <ul className="nav-list">
                         {link.map((link,i)=>{
-                            return (status===1&&(link.name==="Login"||link.name==="Register"))?"":(status===0&&link.name==="Logout")?"":<li key={i} className="nav-items" onClick={loading}><a href={link.link}> {link.name}</a></li>
+                            return (status===1&&(link.name==="Login"||link.name==="Register"))?"":(status===0&&link.name==="Logout")?"":<li key={i} className="nav-items" onClick={loading}><a href={link.link} className="nav-link" > {link.name}</a></li>
                         })}
                         {(status===1)?<li className='nav-items logout' onClick={logout}>Logout</li>:""}
                     </ul>
@@ -49,7 +49,7 @@ const Navbar = (props) => {
             <div className={(state===1)?"display sidebar":(state!==2)?"hide sidebar":"sidebar"} >
                    <ul className="nav-list" style={{display:(state===1)?"block":"none"}}>
                         {link.map((link,i)=>{
-                            return (status===1&&(link.name==="Login"||link.name==="Register"))?"":<li key={i} className="nav-items" onClick={loading}><a href={link.link}> {link.name}</a></li>
+                            return (status===1&&(link.name==="Login"||link.name==="Register"))?"":<li key={i} className="nav-items" onClick={loading}><a href={link.link} className="nav-link" > {link.name}</a></li>
                         })}
                         {(status===1)?<li className='nav-items logout' onClick={logout}>Logout</li>:""}
                     </ul>

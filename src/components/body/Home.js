@@ -10,11 +10,14 @@ const Home = (props) => {
     // console.log(props.logset);
     const [content, setcontent] = useState([]);
     useEffect(() => {
+        document.querySelectorAll(".nav-link")[0].style.color="wheat";
         axios.get(baseUrl).then((response)=>{
             // console.log(response);
             setcontent(response.data);
         })
     },[]);
+    // document.getElementById("root").style.display="block";
+
 
     // -----------------------------------------  Delete post --------------------------------
 
@@ -36,7 +39,7 @@ const Home = (props) => {
         setremove(tmp);
     }
 
-
+// console.log(content[8].image[0].base64);
     return (
         <div className="home-container">
                 <div className="greet" ><p style={{textAlign:"end"}}>Welcome <span style={{textTransform:(props.greet!=="to the Daily Blogs")?"uppercase":"none"}}>{props.greet} ! </span> &nbsp;</p></div>
@@ -50,11 +53,16 @@ const Home = (props) => {
                         (content.length===0)?<img width={30} style={{margin:"30px auto",display:"block"}} src="https://www.netatwork.com/uploads/AAPL/loaders/Thin%20broken%20ring.gif" alt="fetching" />:
                         content.map((val,i)=>{
                             return <div className="post" key={i}>
-                                    <h2>{val.title}</h2>
-                                <span className="addDate" style={{display:(val.author===""||i===0)?"none":"inherits"}}>posted <span style={{display:(val.author==="")?"":"inline"}}>by </span> <h5 style={{display:(val.author==="")?"":"inline"}}>{val.author}</h5> on {val.addDate}</span>
-                                    <div className="post-details">
-                                    <p>{`${val.content}`.substring(0,70)+ "..."} <a href={`posts/${val._id}`} style={{color:"blue",whiteSpace:"nowrap"}}>Read More</a></p>
-                                    {(logs===1&&val.author_id===props.uid)?<p><a href={"edit/"+val._id}><span style={{color:"blue"}}><FontAwesomeIcon icon={faPen}/></span></a><span className='span2' onClick={()=>{setter(val._id)} }style={{color:"red",cursor:"pointer"}}><FontAwesomeIcon icon={faTrashCan} /></span></p>:''}
+                                <div className="image-container">
+                                    {(val.image.length!==0)?<img src={val.image[0].base64} alt="post-image" />:<img src='https://icon-library.com/images/img-icon/img-icon-0.jpg' alt='post-image'/>}
+                                </div>
+                                    <div className='post-detail'>
+                                        <h2>{val.title}</h2>
+                                        <span className="addDate" style={{display:(val.author===""||i===0)?"none":"inherits"}}>posted <span style={{display:(val.author==="")?"":"inline"}}>by </span> <h5 style={{display:(val.author==="")?"":"inline"}}>{val.author}</h5> on {val.addDate}</span>
+                                        <div className="post-details">
+                                           <p>{`${val.content}`.substring(0,70)+ "..."} <a href={`posts/${val._id}`} style={{color:"blue",whiteSpace:"nowrap"}}>Read More</a></p>
+                                            {(logs===1&&val.author_id===props.uid)?<p><a href={"edit/"+val._id}><span style={{color:"blue"}}><FontAwesomeIcon icon={faPen}/></span></a><span className='span2' onClick={()=>{setter(val._id)} }style={{color:"red",cursor:"pointer"}}><FontAwesomeIcon icon={faTrashCan} /></span></p>:''}
+                                        </div>
                                     </div>
                                    </div>
                         })

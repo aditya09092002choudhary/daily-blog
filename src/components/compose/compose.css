@@ -12,11 +12,11 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     /* text-align: center; */
-    margin: 30px auto 0;
+    margin: 30px auto 20px;
     padding: 10px 30px;
 }
 
-.title-container{
+.title-container,.image-container{
     margin: 30px auto;
 }
 .content-container,.button-container{

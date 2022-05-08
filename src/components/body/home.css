@@ -44,6 +44,27 @@ span.addDate{
   padding: 5px 10px;
   border-radius: 7px;
   margin-bottom: 10px;
+  display: flex;
+  column-gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.posts .post .image-container{
+  /* border: 1px solid; */
+  /* background-color: #ddd; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+}
+.posts .post .image-container img{
+  width: 65%;
+  border-radius: 10px;
+}
+
+.posts .post .post-detail{
+  width: 75%;
+  height: 100%;
 }
 .posts .post:hover {
   box-shadow: 0 0 3px gray;
@@ -77,5 +98,25 @@ span.addDate{
   }
   .post-details p:nth-child(2) {
     text-align: end;
+  }
+  .posts .post .image-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+  }
+  .posts .post{
+    display: block;
+  }
+  .posts .post .image-container{
+    width: 70%;
+  }
+  .posts .post .image-container img{
+    width: 100%;
+    /* margin: 20px auto; */
+  }
+  
+  .posts .post .post-detail{
+    width: 100%;
   }
 }

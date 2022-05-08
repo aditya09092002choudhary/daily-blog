@@ -11,6 +11,7 @@ function News(){
     const baseUrl = "https://newsdata.io/api/1/news?apikey=pub_6494e69154e027b9ccf588e62e619540fb4e&q=latest&country=in,ru,ua,us&language=en&category=health,politics,science,top,world";
     // console.log(this.params.id);
     useEffect(() => {
+        document.querySelectorAll(".nav-link")[3].style.color="wheat";
         axios.get(baseUrl).then((response)=>{
             // console.log(response);
             setnews(response.data.results);
@@ -31,7 +32,7 @@ function News(){
                     <div className="heading">
                         <h2>{`${val.title}`.substring(0,45)+"..."}</h2>
                     </div>
-                    <div className="desc"><p>{`${val.description}`.substring(0,150)+"..."}</p></div>
+                    <div className="desc"><p>{`${val.description}`.substring(0,130)+"..."}</p></div>
                     <div className="link">
                         <a href={val.link} target="_blank" rel="noreferrer"><button style={{cursor:"pointer"}}>View</button></a>
                     </div>

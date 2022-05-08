@@ -11,18 +11,25 @@ const Post = () => {
     // console.log(id);
     const endpoint = baseUrl+id;
     const [blog, setblog] = useState({});
+    const [cnt, setcnt] = useState(0);
     useEffect(() => {
         axios.get(endpoint).then((response)=>{
             // console.log(response);
             setblog(response.data);
+            setcnt(1);
         })
     }, []);
-    return (
+    return ((cnt!==0)?
         <div className='post-container'>
             <div className="exit"><span onClick={()=>window.history.back()}><FontAwesomeIcon icon={faXmark} /></span></div>
+            <div className="image-container">
+            {(blog.image.length!==0)?<img src={blog.image[0].base64} alt="post-image" />:<img src='https://icon-library.com/images/img-icon/img-icon-0.jpg'  alt='post-image'/>}
+
+            </div>
             <h1>{blog.title}</h1>
             <p style={{whiteSpace:"pre-line"}}>{blog.content}</p>
-        </div>
+        </div>:
+        <img width={30} style={{margin:"30px auto",display:"block"}} src="https://www.netatwork.com/uploads/AAPL/loaders/Thin%20broken%20ring.gif" alt="fetching" />
     );
 }
 

@@ -132,6 +132,7 @@ html,body{
     padding: 7px 5px;
     margin: 20px 0;
     border: none;
+    cursor: pointer;
     outline: none;
 }
 

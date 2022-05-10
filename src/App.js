@@ -13,6 +13,7 @@ import News from "./components/news/News";
 import Compose from "./components/compose/Compose";
 import Edit from "./components/compose/Edit";
 import axios from "axios";
+import Author from "./components/posts/Author";
  const baseUrl="https://daily-blog-backend.herokuapp.com/protected";
 //  const baseUrl="http://localhost:1337/protected";
 const App = () => {
@@ -64,6 +65,7 @@ const App = () => {
           <Route path="compose" element={<Compose login ={login} uid={uid}/>} />
           <Route path="edit/:id" element={<Edit />} />
           <Route path={`posts/:id`} element={<Post />}/>
+          <Route path={`author/:id`} element={<Author  login={login} role={role} uid={uid}/>}/>
         </Routes>
         <Footer />
       </Router>

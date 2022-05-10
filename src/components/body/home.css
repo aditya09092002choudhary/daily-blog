@@ -48,6 +48,7 @@ span.addDate{
   column-gap: 10px;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 0 1.5px gray;
 }
 .posts .post .image-container{
   /* border: 1px solid; */

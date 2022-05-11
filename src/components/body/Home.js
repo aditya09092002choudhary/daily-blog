@@ -48,7 +48,7 @@ const Home = (props) => {
                 <div className="heading"><h1>Home</h1></div>
                 <div className="add-blog">{(logs===1&&props.role==="admin")?<a href="/compose"><button>Add Blog</button></a>:""}</div>
                 </div>
-                <div className="posts" style={{marginBottom:"50px"}}>
+                <div className="posts">
                     {
                         (content.length===0)?<img width={30} style={{margin:"30px auto",display:"block"}} src="https://www.netatwork.com/uploads/AAPL/loaders/Thin%20broken%20ring.gif" alt="fetching" />:
                         content.map((val,i)=>{

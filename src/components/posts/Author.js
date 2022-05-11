@@ -56,7 +56,7 @@ const Author = (props) => {
                 <div className="heading"><h1>{username}</h1></div>
                 <div className="add-blog">{(logs===1&&props.role==="admin"&&props.uid===id)?<a href="/compose"><button>Add Blog</button></a>:""}</div>
                 </div>
-                <div className="posts" style={{marginBottom:"50px"}}>
+                <div className="posts" >
                     {
                         (content.length===0)?<img width={30} style={{margin:"30px auto",display:"block"}} src="https://www.netatwork.com/uploads/AAPL/loaders/Thin%20broken%20ring.gif" alt="fetching" />:
                         content.map((val,i)=>{
@@ -66,7 +66,7 @@ const Author = (props) => {
                                 </div>
                                     <div className='post-detail'>
                                         <h2>{val.title}</h2>
-                                        {/* <span className="addDate" style={{display:(val.author===""||i===0)?"none":"inherits"}}>posted <span style={{display:(val.author==="")?"":"inline"}}>by </span> <h5 style={{display:(val.author==="")?"":"inline"}}><a href={`author/${val.author_id}`}>{val.author}</a></h5> on {val.addDate}</span> */}
+                                        <span className="addDate" style={{display:(val.author===""||i===0)?"none":"inherits"}}>posted on {val.addDate}</span>
                                         <div className="post-details">
                                            <p>{`${val.content}`.substring(0,70)+ "..."} <a href={`/posts/${val._id}`} style={{color:"blue",whiteSpace:"nowrap"}}>Read More</a></p>
                                             {(logs===1&&val.author_id===props.uid)?<p style={{whiteSpace:"nowrap"}}><a href={"/edit/"+val._id}><span style={{color:"blue"}}><FontAwesomeIcon icon={faPen}/></span></a><span className='span2' onClick={()=>{setter(val._id)} }style={{color:"red",cursor:"pointer"}}><FontAwesomeIcon icon={faTrashCan} /></span></p>:''}

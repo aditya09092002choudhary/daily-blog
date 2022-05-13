@@ -11,7 +11,7 @@
     margin: 0;
 }
 .post-container p{
-    margin:0 30px;
+    margin: 30px;
 }
 .post-container .image-container{
     width: 50%;
@@ -33,7 +33,7 @@
         font-size: 1.5rem;
     }
     .post-container p{
-        margin: 0 10px 10px;
+        margin: 10px;
     }
     .post-container .image-container{
         width: 90%;

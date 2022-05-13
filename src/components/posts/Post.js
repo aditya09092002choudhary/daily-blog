@@ -27,6 +27,8 @@ const Post = () => {
 
             </div>
             <h1>{blog.title}</h1>
+            <span className="addDate" style={{display:(blog.author===""||blog.author_id==="")?"none":"inherits"}}>posted <span style={{display:(blog.author==="")?"":"inline"}}>by </span> <h5 style={{display:(blog.author==="")?"":"inline"}}><a href={`author/${blog.author_id}`} style={{color:"black"}}>{blog.author}</a></h5> on {blog.addDate}</span>
+
             <p style={{whiteSpace:"pre-line"}}>{blog.content}</p>
         </div>:
         <img width={30} style={{margin:"30px auto",display:"block"}} src="https://www.netatwork.com/uploads/AAPL/loaders/Thin%20broken%20ring.gif" alt="fetching" />

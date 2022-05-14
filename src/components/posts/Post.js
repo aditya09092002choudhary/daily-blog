@@ -12,7 +12,9 @@ const Post = () => {
     const endpoint = baseUrl+id;
     const [blog, setblog] = useState({});
     const [cnt, setcnt] = useState(0);
+    
     useEffect(() => {
+        document.title = "Post | Daily Blogs"
         axios.get(endpoint).then((response)=>{
             // console.log(response);
             setblog(response.data);

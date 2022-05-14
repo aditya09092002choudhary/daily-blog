@@ -12,13 +12,14 @@ const Author = (props) => {
     const logs=props.login;
     const {id}=useParams();
     // console.log(props.logset);
-    const [username, setusername] = useState("");
+    const [username, setusername] = useState("Loading...");
     const [content, setcontent] = useState([]);
+    document.title = username +" - Author | Daily Blogs";
     useEffect(() => {
         document.querySelectorAll(".nav-link")[0].style.color="wheat";
         axios.get(baseUrl).then((response)=>{
-            // console.log(response);
             setcontent(response.data);
+            // console.log(response);
         })
         axios.get(baseUrl+"author/"+id).then((res)=>{
             setusername(res.data)

@@ -3,13 +3,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen,faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import './home.css';
 import axios from 'axios';
+import {NavLink} from 'react-router-dom';
  const baseUrl="https://daily-blog-backend.herokuapp.com/";
 // const baseUrl = "http://localhost:1337/";
 const Home = (props) => {
     const logs=props.login;
     // console.log(props.logset);
     const [content, setcontent] = useState([]);
-    useEffect(() => {
+        useEffect(() => {
+        document.querySelector("#root").style.display="block";
+            document.title = "Daily Blogs"
         document.querySelectorAll(".nav-link")[0].style.color="wheat";
         axios.get(baseUrl).then((response)=>{
             // console.log(response);
@@ -46,7 +49,7 @@ const Home = (props) => {
             <div className="inner-container">
                 <div className="top">
                 <div className="heading"><h1>Home</h1></div>
-                <div className="add-blog">{(logs===1&&props.role==="admin")?<a href="/compose"><button>Add Blog</button></a>:""}</div>
+                <div className="add-blog">{(logs===1&&props.role==="admin")?<NavLink to="/compose"><button>Add Blog</button></NavLink>:""}</div>
                 </div>
                 <div className="posts">
                     {
@@ -58,10 +61,10 @@ const Home = (props) => {
                                 </div>
                                     <div className='post-detail'>
                                         <h2>{val.title}</h2>
-                                        <span className="addDate" style={{display:(val.author===""||i===0)?"none":"inherits"}}>posted <span style={{display:(val.author==="")?"":"inline"}}>by </span> <h5 style={{display:(val.author==="")?"":"inline"}}><a href={`author/${val.author_id}`} style={{color:"black"}}>{val.author}</a></h5> on {val.addDate}</span>
+                                        <span className="addDate" style={{display:(val.author===""||i===0)?"none":"inherits"}}>posted <span style={{display:(val.author==="")?"":"inline"}}>by </span> <h5 style={{display:(val.author==="")?"":"inline"}}><NavLink to={`/author/${val.author_id}`} style={{color:"black"}}>{val.author}</NavLink></h5> on {val.addDate}</span>
                                         <div className="post-details">
-                                           <p>{`${val.content}`.substring(0,70)+ "..."} <a href={`posts/${val._id}`} style={{color:"blue",whiteSpace:"nowrap"}}>Read More</a></p>
-                                            {(logs===1&&val.author_id===props.uid)?<p style={{whiteSpace:"nowrap"}}><a href={"edit/"+val._id}><span style={{color:"blue"}}><FontAwesomeIcon icon={faPen}/></span></a><span className='span2' onClick={()=>{setter(val._id)} }style={{color:"red",cursor:"pointer"}}><FontAwesomeIcon icon={faTrashCan} /></span></p>:''}
+                                           <p>{`${val.content}`.substring(0,70)+ "..."} <NavLink to={`posts/${val._id}`} style={{color:"blue",whiteSpace:"nowrap"}}>Read More</NavLink></p>
+                                            {(logs===1&&val.author_id===props.uid)?<p style={{whiteSpace:"nowrap"}}><NavLink to={"/edit/"+val._id}><span style={{color:"blue"}}><FontAwesomeIcon icon={faPen}/></span></NavLink><span className='span2' onClick={()=>{setter(val._id)} }style={{color:"red",cursor:"pointer"}}><FontAwesomeIcon icon={faTrashCan} /></span></p>:''}
                                         </div>
                                     </div>
                                    </div>:""

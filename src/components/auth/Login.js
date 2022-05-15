@@ -9,6 +9,7 @@ const Login = () => {
   const navigate=useNavigate();
   useEffect(() => {
     document.querySelectorAll(".nav-link")[4].style.color="wheat";
+    document.querySelector("#root").style.display="grid";
     document.title = "Login | Daily Blogs"
 }, []);
   const [valid,setvalid]=useState(true);
@@ -40,8 +41,8 @@ const Login = () => {
     }}).then(res=>{
         // console.log(res);
         if(res.data.success===true){
-            
-            window.location.href="/";
+            navigate("/");
+            // window.location.href="/";
           }
     }).catch(err=>{
         // console.log(err);
@@ -65,6 +66,7 @@ const Login = () => {
     localStorage.setItem('token',data.token);
     if(data.success===true){
       window.location.href="/";
+      // navigate("/");
     }
     if(data.success===false){
     document.querySelector(".loading-gif").style.display="none";

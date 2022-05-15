@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen,faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import '../body/home.css';
-import { useParams } from 'react-router-dom';
+import { useParams,NavLink } from 'react-router-dom';
  const baseUrl="https://daily-blog-backend.herokuapp.com/";
 //  const baseUrl = "http://localhost:1337/";
 
@@ -55,7 +55,7 @@ const Author = (props) => {
             <div className="inner-container"style={{marginTop:"30px"}}>
                 <div className="top">
                 <div className="heading"><h1>{username}</h1></div>
-                <div className="add-blog">{(logs===1&&props.role==="admin"&&props.uid===id)?<a href="/compose"><button>Add Blog</button></a>:""}</div>
+                <div className="add-blog">{(logs===1&&props.role==="admin"&&props.uid===id)?<NavLink to="/compose"><button>Add Blog</button></NavLink>:""}</div>
                 </div>
                 <div className="posts" >
                     {
@@ -69,8 +69,8 @@ const Author = (props) => {
                                         <h2>{val.title}</h2>
                                         <span className="addDate" style={{display:(val.author===""||i===0)?"none":"inherits"}}>posted on {val.addDate}</span>
                                         <div className="post-details">
-                                           <p>{`${val.content}`.substring(0,70)+ "..."} <a href={`/posts/${val._id}`} style={{color:"blue",whiteSpace:"nowrap"}}>Read More</a></p>
-                                            {(logs===1&&val.author_id===props.uid)?<p style={{whiteSpace:"nowrap"}}><a href={"/edit/"+val._id}><span style={{color:"blue"}}><FontAwesomeIcon icon={faPen}/></span></a><span className='span2' onClick={()=>{setter(val._id)} }style={{color:"red",cursor:"pointer"}}><FontAwesomeIcon icon={faTrashCan} /></span></p>:''}
+                                           <p>{`${val.content}`.substring(0,70)+ "..."} <NavLink to={`/posts/${val._id}`} style={{color:"blue",whiteSpace:"nowrap"}}>Read More</NavLink></p>
+                                            {(logs===1&&val.author_id===props.uid)?<p style={{whiteSpace:"nowrap"}}><NavLink to={"/edit/"+val._id}><span style={{color:"blue"}}><FontAwesomeIcon icon={faPen}/></span></NavLink><span className='span2' onClick={()=>{setter(val._id)} }style={{color:"red",cursor:"pointer"}}><FontAwesomeIcon icon={faTrashCan} /></span></p>:''}
                                         </div>
                                     </div>
                                    </div>:""

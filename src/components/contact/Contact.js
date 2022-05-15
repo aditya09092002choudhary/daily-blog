@@ -6,6 +6,7 @@ const Contact = () => {
   const [width, setwidth] = useState("");
   useEffect(() => {
     setwidth(window.innerWidth);
+    document.querySelector("#root").style.display="grid";
     document.querySelectorAll(".nav-link")[2].style.color="wheat";
     document.title = "Contact us | Daily Blogs"
 }, []);

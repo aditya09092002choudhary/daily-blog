@@ -1,11 +1,14 @@
 import React,{useState,useEffect} from 'react';
 import './auth.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const baseUrl="https://daily-blog-backend.herokuapp.com/";
 // const baseUrl = "http://localhost:1337/";
 const Register = () => {
+  const navigate=useNavigate();
   useEffect(() => {
+    document.querySelector("#root").style.display="grid";
     document.title = "Register | Daily Blogs";
     document.querySelectorAll(".nav-link")[5].style.color="wheat";
 }, []);
@@ -59,7 +62,8 @@ async function registerUser(event) {
   document.querySelector(".loading-gif").style.display="unset";
   axios.post(baseUrl+'register',auth).then((res)=>{
     if(res.data.success===true){
-      window.location.href="/login";
+      // window.location.href="/login";
+      navigate("/login");
     }else{
     document.querySelector(".loading-gif").style.display="none";
 

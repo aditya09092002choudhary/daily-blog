@@ -16,6 +16,10 @@ const Author = (props) => {
     const [content, setcontent] = useState([]);
     document.title = username +" - Author | Daily Blogs";
     useEffect(() => {
+        console.log(document.getElementById("root").offsetHeight,window.innerHeight);
+        if(document.getElementById("root").offsetHeight<window.innerHeight+30){
+            document.getElementById("root").style.display="block";
+        }
         document.querySelectorAll(".nav-link")[0].style.color="wheat";
         axios.get(baseUrl).then((response)=>{
             setcontent(response.data);

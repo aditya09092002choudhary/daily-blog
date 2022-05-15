@@ -8,7 +8,7 @@ const baseUrl="https://daily-blog-backend.herokuapp.com/";
 const Register = () => {
   const navigate=useNavigate();
   useEffect(() => {
-    // document.querySelector("#root").style.display="grid";
+    document.querySelector("#root").style.display="grid";
     document.title = "Register | Daily Blogs";
     document.querySelectorAll(".nav-link")[5].style.color="wheat";
 }, []);

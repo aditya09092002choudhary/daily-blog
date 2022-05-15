@@ -11,7 +11,7 @@ const Home = (props) => {
     // console.log(props.logset);
     const [content, setcontent] = useState([]);
         useEffect(() => {
-        // document.querySelector("#root").style.display="block";
+        document.querySelector("#root").style.display="block";
             document.title = "Daily Blogs"
         document.querySelectorAll(".nav-link")[0].style.color="wheat";
         axios.get(baseUrl).then((response)=>{

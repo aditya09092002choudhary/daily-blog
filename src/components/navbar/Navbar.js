@@ -27,7 +27,6 @@ const Navbar = (props) => {
         });
     }
     function clearStyle(){
-        props.update();
         document.querySelector("#root").style.display="grid";
         const x = document.querySelectorAll(".nav-link");
         for(let i=0;i<x.length;i++){

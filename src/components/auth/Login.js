@@ -9,7 +9,7 @@ const Login = () => {
   const navigate=useNavigate();
   useEffect(() => {
     document.querySelectorAll(".nav-link")[4].style.color="wheat";
-    // document.querySelector("#root").style.display="grid";
+    document.querySelector("#root").style.display="grid";
     document.title = "Login | Daily Blogs"
 }, []);
   const [valid,setvalid]=useState(true);

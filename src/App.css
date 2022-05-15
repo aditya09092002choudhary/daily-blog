@@ -8,6 +8,7 @@ h1 {
     font-family: "Courier New", Courier, monospace !important;
   }
 #root{
+    /* border: 1px solid; */
     min-height: 100vh;
     display: grid;
     grid-template-rows: .1fr 2.8fr .1fr;

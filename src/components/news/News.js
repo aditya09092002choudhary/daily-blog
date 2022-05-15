@@ -6,7 +6,7 @@ function News(){
     useEffect(() => {
         document.title = "News | Daily Blogs"
     }, []);
-    // document.getElementById("root").style.display="block";
+    document.getElementById("root").style.display="block";
     const [news, setnews] = useState([]); 
     const baseUrl = "https://newsdata.io/api/1/news?apikey=pub_6494e69154e027b9ccf588e62e619540fb4e&q=latest&country=in,ru,ua,us&language=en&category=health,politics,science,top,world";
     // console.log(this.params.id);

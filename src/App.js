@@ -17,17 +17,7 @@ import Author from "./components/posts/Author";
  const baseUrl="https://daily-blog-backend.herokuapp.com/protected";
 //  const baseUrl="http://localhost:1337/protected";
 const App = () => {
-  const [divHeight, setdivHeight] = useState(document.getElementById('root').offsetHeight);
-  // console.log(divHeight);
-  function update(){ 
-    // console.log(e);
-    setdivHeight(document.getElementById('root').offsetHeight);
-    // console.log(window.innerHeight+50);
-    if(divHeight>(window.innerHeight+50)){
-
-      document.getElementById('root').style.display="block";
-    }
-  }
+ 
     // const title ="Day 1";
     // const para = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam possimus laboriosam quis voluptate. Hic, laborum asperiores. Magni ipsa itaque, perferendis rem maiores hic quasi, totam ab labore corporis aspernatur laborum repellat necessitatibus sapiente aliquam est nihil libero animi ratione et aperiam. Error cumque, ullam officia maiores cupiditate ducimus quod placeat.";
     const [login,setLogin]=useState(0);
@@ -65,7 +55,7 @@ const App = () => {
     return (
     <React.StrictMode>
       <Router>
-        <Navbar login={login} update={update}/>
+        <Navbar login={login} />
         <Routes>
           <Route path="/" element={<Home greet={(name==="")?"to the Daily Blogs":name} login={login} role={role} uid={uid} />} />
           <Route path="login" element={<Login />} login ={login}/>

@@ -70,7 +70,7 @@ const Author = (props) => {
                                         <span className="addDate" style={{display:(val.author===""||i===0)?"none":"inherits"}}>posted on {val.addDate}</span>
                                         <div className="post-details">
                                            <p>{`${val.content}`.substring(0,70)+ "..."} <NavLink to={`/posts/${val._id}`} style={{color:"blue",whiteSpace:"nowrap"}}>Read More</NavLink></p>
-                                            {(logs===1&&val.author_id===props.uid)?<p style={{whiteSpace:"nowrap"}}><NavLink to={"/edit/"+val._id}><span style={{color:"blue"}}><FontAwesomeIcon icon={faPen}/></span></NavLink><span className='span2' onClick={()=>{setter(val._id)} }style={{color:"red",cursor:"pointer"}}><FontAwesomeIcon icon={faTrashCan} /></span></p>:''}
+                                            {(logs===1&&val.author_id===props.uid)?<p style={{whiteSpace:"nowrap"}}><a href={"/edit/"+val._id}><span style={{color:"blue"}}><FontAwesomeIcon icon={faPen}/></span></a><span className='span2' onClick={()=>{setter(val._id)} }style={{color:"red",cursor:"pointer"}}><FontAwesomeIcon icon={faTrashCan} /></span></p>:''}
                                         </div>
                                     </div>
                                    </div>:""

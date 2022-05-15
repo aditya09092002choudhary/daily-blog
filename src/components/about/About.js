@@ -5,7 +5,7 @@ const About = () => {
   useEffect(() => {
     document.title = "About | Daily Blogs";
     document.querySelectorAll(".nav-link")[1].style.color="wheat";
-    document.querySelector("#root").style.display="grid";
+    // document.querySelector("#root").style.display="grid";
 }, []);
   return (
     <div className="about-container">

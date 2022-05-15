@@ -26,6 +26,14 @@ const Navbar = (props) => {
             }
         });
     }
+    function clearStyle(){
+        props.update();
+        document.querySelector("#root").style.display="grid";
+        const x = document.querySelectorAll(".nav-link");
+        for(let i=0;i<x.length;i++){
+            x[i].style.color="white";
+        }
+    }
     function logout(){
         // loading();
         localStorage.removeItem('token');
@@ -42,7 +50,7 @@ const Navbar = (props) => {
                 <div className="nav-items">
                     <ul className="nav-list">
                         {link.map((link,i)=>{
-                            return (status===1&&(link.name==="Login"||link.name==="Register"))?"":(status===0&&link.name==="Logout")?"":<li key={i} className="nav-items" ><NavLink to={link.link} className="nav-link" > {link.name}</NavLink></li>
+                            return (status===1&&(link.name==="Login"||link.name==="Register"))?"":(status===0&&link.name==="Logout")?"":<li key={i} className="nav-items" ><NavLink to={link.link} className="nav-link" onClick={clearStyle}> {link.name}</NavLink></li>
                         })}
                         {(status===1)?<li className='nav-items logout' onClick={logout}>Logout</li>:""}
                     </ul>

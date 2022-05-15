@@ -9,7 +9,7 @@ h1 {
   }
 #root{
     min-height: 100vh;
-    /* display: grid; */
+    display: grid;
     grid-template-rows: .1fr 2.8fr .1fr;
     grid-template-columns: 1fr;
     flex-direction: column;

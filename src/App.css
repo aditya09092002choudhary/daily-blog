@@ -9,7 +9,7 @@ h1 {
   }
 #root{
     /* border: 1px solid; */
-    min-height: 100vh;
+    min-height: 95vh;
     /* display: grid; */
     grid-template-rows: .2fr 2.5fr;
     grid-template-columns: 1fr;

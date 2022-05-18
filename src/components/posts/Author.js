@@ -16,6 +16,7 @@ const Author = (props) => {
     const [content, setcontent] = useState([]);
     document.title = username +" - Author | Daily Blogs";
     useEffect(() => {
+        // document.querySelector("#root").style.display="grid";
         console.log(document.getElementById("root").offsetHeight,window.innerHeight);
         if(document.getElementById("root").offsetHeight<window.innerHeight+30){
             document.getElementById("root").style.display="block";
@@ -64,7 +65,7 @@ const Author = (props) => {
                 <div className="posts" >
                     {
                         (content.length===0)?<img width={30} style={{margin:"30px auto",display:"block"}} src="https://www.netatwork.com/uploads/AAPL/loaders/Thin%20broken%20ring.gif" alt="fetching" />:
-                        content.map((val,i)=>{
+                         content.map((val,i)=>{
                             return (i!==0&&val.author_id===id)?<div className="post" key={i}>
                                 <div className="image-container">
                                     {(val.image.length!==0)?<img src={val.image[0].base64} alt="post-image" />:<img src='https://icon-library.com/images/img-icon/img-icon-0.jpg' alt='post-image'/>}

@@ -15,7 +15,8 @@ const Post = () => {
     const [cnt, setcnt] = useState(0);
     
     useEffect(() => {
-        document.title = "Post | Daily Blogs"
+        document.title = "Post | Daily Blogs";
+        // document.querySelector("#root").style.display="grid";
         axios.get(endpoint).then((response)=>{
             // console.log(response);
             setblog(response.data);

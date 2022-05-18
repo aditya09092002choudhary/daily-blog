@@ -10,14 +10,16 @@ h1 {
 #root{
     /* border: 1px solid; */
     min-height: 100vh;
-    display: grid;
-    grid-template-rows: .1fr 2.8fr .1fr;
+    /* display: grid; */
+    grid-template-rows: .2fr 2.5fr;
     grid-template-columns: 1fr;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
+    padding-bottom: 70px;
 }
- /* @media screen and (max-width:650px) {
+ @media screen and (max-width:650px) {
 #root{
-    grid-template-rows: .1fr 7fr .1fr;
+    padding-bottom: 40px;
     }
-}  */
+} 

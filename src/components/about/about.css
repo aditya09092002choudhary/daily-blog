@@ -1,7 +1,7 @@
 .about-container{
     background: white;
     margin-top: 20px;
-    padding: 0 100px;
+    padding: 20px 100px;
 }
 
 .about-container li{
@@ -11,6 +11,8 @@
 @media screen and (max-width:650px) {
     .about-container{
         font-size: .9rem;
-        padding: 0 10px;
+        padding:20px 10px;
+    margin: 20px 0 40px;
+
     }
 }

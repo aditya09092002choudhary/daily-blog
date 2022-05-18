@@ -6,6 +6,7 @@
 .home-container .inner-container {
   background-color: white;
   margin-top: -10px;
+  margin-bottom: 30px;
   box-shadow: 0 0 10px gray;
   padding: 5px 3%;
   text-align: start !important;

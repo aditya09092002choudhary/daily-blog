@@ -11,7 +11,7 @@ const Home = (props) => {
     // console.log(props.logset);
     const [content, setcontent] = useState([]);
         useEffect(() => {
-        document.querySelector("#root").style.display="grid";
+        // document.querySelector("#root").style.display="grid";
             document.title = "Daily Blogs"
         document.querySelectorAll(".nav-link")[0].style.color="wheat";
         axios.get(baseUrl).then((response)=>{
@@ -55,7 +55,7 @@ const Home = (props) => {
                     {
                         (content.length===0)?<img width={30} style={{margin:"30px auto",display:"block"}} src="https://www.netatwork.com/uploads/AAPL/loaders/Thin%20broken%20ring.gif" alt="fetching" />:
                         content.map((val,i)=>{
-        document.querySelector("#root").style.display="block";
+        // document.querySelector("#root").style.display="block";
 
                             return (logs===1&&i!==0||props.role!=="admin")?<div className="post" key={i}>
                                 <div className="image-container">

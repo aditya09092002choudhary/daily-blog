@@ -10,7 +10,7 @@ function News(){
     const baseUrl = "https://newsdata.io/api/1/news?apikey=pub_6494e69154e027b9ccf588e62e619540fb4e&q=latest&country=in,ru,ua,us&language=en&category=health,politics,science,top,world";
     // console.log(this.params.id);
     useEffect(() => {
-        document.querySelector("#root").style.display="grid";
+        // document.querySelector("#root").style.display="grid";
         document.querySelectorAll(".nav-link")[3].style.color="wheat";
         axios.get(baseUrl).then((response)=>{
             // console.log(response);
@@ -23,7 +23,7 @@ function News(){
             <div className="all-news">
                 {(news.length===0)?<img width={20} style={{margin:"30px auto",display:"block"}} src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="fetching" />:
                 news.map((val,i)=>{
-    document.getElementById("root").style.display="block";
+    // document.getElementById("root").style.display="block";
 
                     return <div className="news" key={i}>
                     <div className="image">

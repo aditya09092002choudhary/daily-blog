@@ -49,6 +49,7 @@ html,body{
     outline: none;
     margin-top:2%;
     width: 100%;
+    background: transparent;
     border: none;
 }
 

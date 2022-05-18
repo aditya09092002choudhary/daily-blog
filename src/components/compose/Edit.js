@@ -17,7 +17,7 @@ const Edit = () => {
         content:""
     });
     useEffect(() => {
-    document.querySelector("#root").style.display="grid";
+    // document.querySelector("#root").style.display="grid";
         document.title = "Edit post | Daily Blogs"
         axios.get(endpoint).then((response)=>{
             // console.log(response);

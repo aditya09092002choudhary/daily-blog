@@ -16,6 +16,7 @@ const Login = () => {
   const [errmsg, seterrmsg] = useState("");
   const [auth, setauth] = useState({
     username:"",
+    role:"user",
     password:""
   });
   function handleChange(e){
@@ -24,12 +25,20 @@ const Login = () => {
       if(name==="username"){
         return {
           username:value,
+          role:prev.role,
           password:prev.password
         }
-      } else{
+      } else if(name==="password"){
         return {
           username:prev.username,
+          role:prev.role,
           password:value
+        }
+      }else{
+        return{
+          username:prev.username,
+          role:value,
+          password:prev.password
         }
       }
     })
@@ -62,7 +71,7 @@ const Login = () => {
     // console.log(response);
 
 		const data = await response.json()
-    console.log(data);
+    // console.log(data);
     localStorage.setItem('token',data.token);
     if(data.success===true){
       window.location.href="/";
@@ -89,6 +98,16 @@ const Login = () => {
                 <div  className="icon"><i  className="fa-solid fa-envelope"></i></div>
                 <div  className="input">
                   <input type="email" onChange={handleChange} name='username' placeholder="Enter username" id="email"  autoComplete="off" required/>
+                </div>
+              </div>
+              <div  className="inner-element">
+                <div  className="icon"><i className="fa-solid fa-user-large"></i></div>
+                <div  className="input">
+                  <select name="role" id="role" onChange={handleChange}>
+                    <option value="user">User</option>
+                    <option value="editor">Editor</option>
+                    <option value="admin">Admin</option>
+                  </select>
                 </div>
               </div>
               <div id="passwordMsg"  className="err"></div>

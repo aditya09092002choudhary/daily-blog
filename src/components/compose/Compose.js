@@ -17,7 +17,7 @@ const Compose = (props) => {
     const [lName, setlName] = useState("");
     // console.log(title,content);
     useEffect(() => {
-    // document.querySelector("#root").style.display="grid";
+    document.querySelector("#root").style.display="grid";
         document.title = "Compose | Daily Blogs"
     }, []);
     useEffect(()=>{

@@ -15,7 +15,7 @@ html,body{
 .container .inner-container{
     border: none;
     border-top: 5px solid var(--darkColor);
-    width: 35%;
+    width: 30%;
     margin: 20px auto;
     background: var(--lightColor);
     display: flex;
@@ -44,8 +44,17 @@ html,body{
     position: relative;
 }
 
+.inner-element select {
+    padding-left: 10px;
+    outline: none;
+    margin-top:2%;
+    width: 100%;
+    border: none;
+}
 
-
+.loading-gif{
+    margin-top: 30px;
+}
  .icon {
     border-right:1px solid var(--borderColor) ;
     padding: 6px 5px;
@@ -141,21 +150,7 @@ textarea{
     border-radius: 4px;
     margin-top: 4px;
 }
-
-@media screen and (min-width:600px) and (max-width:1200px) {
-    .container .inner-container{
-        width: 50%;
-    }
-}
-
-@media screen and (max-width:600px) {
-    .container .inner-container{
-        width: 95%;
-    }
-.inner-container .heading h1{
-    line-height: 0;
-}
-    .form-element .name{
+.form-element .name{
         display: block;
     }
     .fName, .lName{
@@ -185,5 +180,19 @@ textarea{
         /* right: 0; */
         right: unset;
     }
+@media screen and (min-width:600px) and (max-width:1200px) {
+    .container .inner-container{
+        width: 40%;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .container .inner-container{
+        width: 95%;
+    }
+.inner-container .heading h1{
+    line-height: 0;
+}
+    
 
 }

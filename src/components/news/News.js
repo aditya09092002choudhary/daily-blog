@@ -6,11 +6,11 @@ function News(){
     useEffect(() => {
         document.title = "News | Daily Blogs"
     }, []);
-    document.getElementById("root").style.display="block";
     const [news, setnews] = useState([]); 
     const baseUrl = "https://newsdata.io/api/1/news?apikey=pub_6494e69154e027b9ccf588e62e619540fb4e&q=latest&country=in,ru,ua,us&language=en&category=health,politics,science,top,world";
     // console.log(this.params.id);
     useEffect(() => {
+        document.querySelector("#root").style.display="grid";
         document.querySelectorAll(".nav-link")[3].style.color="wheat";
         axios.get(baseUrl).then((response)=>{
             // console.log(response);
@@ -23,6 +23,8 @@ function News(){
             <div className="all-news">
                 {(news.length===0)?<img width={20} style={{margin:"30px auto",display:"block"}} src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="fetching" />:
                 news.map((val,i)=>{
+    document.getElementById("root").style.display="block";
+
                     return <div className="news" key={i}>
                     <div className="image">
                         <img src={(val.image_url!==null)?val.image_url:"https://images.unsplash.com/photo-1569516449771-41c89ee14ca3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8YW5vbnltb3VzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"} alt="" />

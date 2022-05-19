@@ -1,6 +1,7 @@
 .compose-container{
     background: white;
-    margin-top: 20px;
+    margin: 20px 0;
+    padding: 8px 0;
     
 
 }
@@ -13,7 +14,8 @@
     border-radius: 5px;
     /* text-align: center; */
     margin: 30px auto 20px;
-    padding: 10px 30px;
+    padding: 20px 30px;
+    
 }
 
 .title-container,.image-container{

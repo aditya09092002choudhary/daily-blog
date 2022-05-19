@@ -45,7 +45,7 @@ const Navbar = (props) => {
         <nav className="navbar">
             <div className="loader"><div><img src="https://i.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.webp" width={25} alt="loading" /></div></div>
             <div className="container">
-                <div className="logo"><NavLink to="/"><h2>Daily Blogs</h2></NavLink></div>
+                <div className="logo"><NavLink to="/"><h2 onClick={clearStyle}>Daily Blogs</h2></NavLink></div>
                 <div className="nav-items">
                     <ul className="nav-list">
                         {link.map((link,i)=>{

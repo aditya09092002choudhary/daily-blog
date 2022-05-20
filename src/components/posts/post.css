@@ -1,7 +1,7 @@
 .post-container{
     background: white;
     padding: 2% 10%;
-    margin-top: 20px;
+    margin: 20px 0;
 }
 .post-container .exit{
     text-align: end;

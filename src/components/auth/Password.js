@@ -5,12 +5,12 @@ import { useNavigate } from 'react-router-dom';
 
 const baseUrl="https://daily-blog-backend.herokuapp.com/";
 // const baseUrl = "http://localhost:1337/";
-const Login = () => {
+const Password = () => {
   const navigate=useNavigate();
   useEffect(() => {
     document.querySelectorAll(".nav-link")[4].style.color="wheat";
     // document.querySelector("#root").style.display="grid";
-    document.title = "Login | Daily Blogs"
+    document.title = "Update Password | Daily Blogs"
 }, []);
   const [valid,setvalid]=useState(true);
   const [errmsg, seterrmsg] = useState("");
@@ -114,15 +114,12 @@ const Login = () => {
               <div  className="inner-element">
                 <div  className="icon"><i  className="fa-solid fa-key"></i></div>
                 <div  className="input">
-                  <input type="password" onChange={handleChange} name='password' placeholder="Enter Password" id="password"  required/>
+                  <input type="password" onChange={handleChange} name='password' placeholder="Enter new Password" id="password"  required/>
                 </div>
               </div>
               {/* <div  className="checkbox">
                 <input type="checkbox" name="check" id="check" /> <label htmlFor="check">Remember me</label>
               </div> */}
-              <div className="inner-element" style={{border:"none",fontSize:".9rem"}}>
-                <a href="/uPassword" style={{textDecoration:"none"}}>Update Password</a>
-              </div>
               <div  className="button">
                 <button type="submit">Submit <i  className="fa-solid fa-paper-plane"></i></button>
               </div>
@@ -134,4 +131,4 @@ const Login = () => {
     );
 }
 
-export default Login;
+export default Password;

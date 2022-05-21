@@ -47,7 +47,8 @@ html,body{
 .inner-element select {
     padding-left: 10px;
     outline: none;
-    margin-top:2%;
+    /* margin-top:2%; */
+    height: 100%;
     width: 100%;
     background: transparent;
     border: none;

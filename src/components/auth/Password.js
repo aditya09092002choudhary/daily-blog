@@ -63,7 +63,7 @@ async function loginUser(event) {
   if(cntPassword===newPassword){
   document.querySelector(".loading-gif").style.display="unset";
   axios.post(baseUrl+"uPassword",{auth,newPassword}).then((response)=>{
-    console.log(response.data);
+    // console.log(response.data);
     if(response.data.success===true){
       navigate('/');
       alert("Password is updated successfully.");

@@ -120,9 +120,6 @@ const Login = () => {
               {/* <div  className="checkbox">
                 <input type="checkbox" name="check" id="check" /> <label htmlFor="check">Remember me</label>
               </div> */}
-              <div className="inner-element" style={{border:"none",fontSize:".9rem"}}>
-                <a href="/uPassword" style={{textDecoration:"none"}}>Update Password</a>
-              </div>
               <div  className="button">
                 <button type="submit">Submit <i  className="fa-solid fa-paper-plane"></i></button>
               </div>

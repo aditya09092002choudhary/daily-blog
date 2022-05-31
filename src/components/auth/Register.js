@@ -66,7 +66,6 @@ async function registerUser(event) {
       navigate("/login");
     }else{
     document.querySelector(".loading-gif").style.display="none";
-
       setvalid(false);
       seterrmsg(res.data.message);
     }

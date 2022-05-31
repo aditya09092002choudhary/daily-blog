@@ -7,6 +7,8 @@ const baseUrl="https://daily-blog-backend.herokuapp.com/";
 // const baseUrl = "http://localhost:1337/";
 const Password = () => {
   const navigate=useNavigate();
+  const [cntPassword, setcntPassword] = useState("");
+  const [newPassword,setnewPassword]=useState("");
   useEffect(() => {
     document.querySelectorAll(".nav-link")[4].style.color="wheat";
     // document.querySelector("#root").style.display="grid";
@@ -19,6 +21,7 @@ const Password = () => {
     role:"user",
     password:""
   });
+  // console.log(cntPassword,newPassword);
   function handleChange(e){
     const {name,value}=e.target;
     setauth((prev)=>{
@@ -49,49 +52,35 @@ const Password = () => {
         Authorization:token,
     }}).then(res=>{
         // console.log(res);
-        if(res.data.success===true){
-            navigate("/");
+        if(res.data.success!==true){
+            navigate("/login");
             // window.location.href="/";
           }
-    }).catch(err=>{
-        // console.log(err);
-        navigate("/login");
     })
 },[]);
-	async function loginUser(event) {
-		event.preventDefault()
-    document.querySelector(".loading-gif").style.display="unset";
-		const response = await fetch(baseUrl+'login', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(auth),
-		})
-    // console.log(response);
-
-		const data = await response.json()
-    // console.log(data);
-    localStorage.setItem('token',data.token);
-    if(data.success===true){
-      window.location.href="/";
-      // navigate("/");
+async function loginUser(event) {
+  event.preventDefault()
+  if(cntPassword===newPassword){
+  document.querySelector(".loading-gif").style.display="unset";
+  axios.post(baseUrl+"uPassword",{auth,newPassword}).then((response)=>{
+    console.log(response.data);
+    if(response.data.success===true){
+      navigate('/');
+      alert("Password is updated successfully.");
     }
-    if(data.success===false){
-    document.querySelector(".loading-gif").style.display="none";
-      seterrmsg(data.message);
-      setvalid(false);
-    }
-	}
-
+  })
+}else{
+  alert("Confirm Password does not matched ! Try again.");
+}
+}
     return (
         <div  className="container">
       <div  className="inner-container" style={{height:"80%"}}>
         <div className="loading-gif" style={{textAlign:"center",display:"none"}}><img src="https://www.netatwork.com/uploads/AAPL/loaders/loading_ajax.gif" width={35} alt="loading" /></div>
-        <div  className="heading"><h1>Login</h1></div>
+        <div  className="heading"><h1>Update Password</h1></div>
         <div  className="form-container">
          <p style={{color:"red",textAlign:'center'}}>&nbsp;{(valid===false)?errmsg+"!":""}</p> 
-          <form method='post' onSubmit={loginUser} className="signup-form">
+          <form method='post' onSubmit={loginUser} className="signup-form signup-form-update-password">
             <div  className="form-element">
               <div id="emailMsg"  className="err"></div>
               <div  className="inner-element">
@@ -114,7 +103,19 @@ const Password = () => {
               <div  className="inner-element">
                 <div  className="icon"><i  className="fa-solid fa-key"></i></div>
                 <div  className="input">
-                  <input type="password" onChange={handleChange} name='password' placeholder="Enter new Password" id="password"  required/>
+                  <input type="password" onChange={handleChange} name='password' placeholder="Enter old Password" id="password" autoComplete='off'  required/>
+                </div>
+              </div>
+              <div  className="inner-element">
+                <div  className="icon"><i  className="fa-solid fa-key"></i></div>
+                <div  className="input">
+                  <input type="password" onChange={(e)=>{setnewPassword(e.target.value)}} name='newPassword' placeholder="Enter New Password" id="newPassword" autoComplete='off'  required/>
+                </div>
+              </div>
+              <div  className="inner-element">
+                <div  className="icon"><i  className="fa-solid fa-key"></i></div>
+                <div  className="input">
+                  <input type="password" onChange={(e)=>{setcntPassword(e.target.value)}} name='cnfPassword' placeholder="Confirm New Password" id="cnfPassword" autoComplete='off'  required/>
                 </div>
               </div>
               {/* <div  className="checkbox">

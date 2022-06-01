@@ -57,7 +57,7 @@ const Home = (props) => {
                         content.map((val,i)=>{
         // document.querySelector("#root").style.display="block";
 
-                            return (logs===1&&i!==0||props.role!=="admin")?<div className="post" key={i}>
+                            return ((logs===1)&&(i!==0)||(props.role!=="admin"))?<div className="post" key={i}>
                                 <div className="image-container">
                                     {(val.image.length!==0)?<img src={val.image[0].base64} alt="post-image" />:<img src='https://icon-library.com/images/img-icon/img-icon-0.jpg' alt='post-image'/>}
                                 </div>

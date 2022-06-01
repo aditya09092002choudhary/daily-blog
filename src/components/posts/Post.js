@@ -24,9 +24,19 @@ const Post = () => {
             setcnt(1);
         })
     }, []);
-    return ((cnt!==0)?
-        <div className='post-container'>
-            <div className="exit"><span onClick={()=>window.history.back()}><FontAwesomeIcon icon={faXmark} /></span></div>
+    function handleExit(){
+        document.querySelector(".post-inner-container").classList.add("scaleOut");
+        setTimeout(()=>{
+            window.history.back();
+        },300);
+    }
+    return  <div>
+        <h1 style={{lineHeight:".5"}}>Post</h1>
+        <div className='post-container '>
+    {((cnt!==0)?
+            <div className="post-inner-container scaleIn">
+
+            <div className="exit"><span onClick={handleExit}><FontAwesomeIcon icon={faXmark} /></span></div>
             <div className="image-container">
             {(blog.image.length!==0)?<img src={blog.image[0].base64} alt="post-image" />:<img src='https://icon-library.com/images/img-icon/img-icon-0.jpg'  alt='post-image'/>}
 
@@ -37,7 +47,9 @@ const Post = () => {
             <p style={{whiteSpace:"pre-line"}}>{blog.content}</p>
         </div>:
         <img width={30} style={{margin:"30px auto",display:"block"}} src="https://www.netatwork.com/uploads/AAPL/loaders/Thin%20broken%20ring.gif" alt="fetching" />
-    );
-}
+        )}
+        </div>
+        </div>
+    }
 
 export default Post;

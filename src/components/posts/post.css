@@ -2,6 +2,7 @@
     background: white;
     padding: 2% 10%;
     margin: 20px 0;
+    scroll-behavior: smooth;
 }
 .post-container .post-inner-container{
     border: 1px solid gray;

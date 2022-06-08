@@ -25,9 +25,9 @@ function News(){
                     </div>
                     <div className="details">
                     <div className="heading">
-                        <h2>{`${val.title}`.substring(0,45)+"..."}</h2>
+                        <h2>{`${val.title}`.substring(0,50)+"..."}</h2>
                     </div>
-                    <div className="desc"><p>{`${val.description}`.substring(0,130)+"..."}</p></div>
+                    <div className="desc"><p>{`${val.description}`.substring(0,110)+"..."}</p></div>
                     <div className="link">
                         <a href={val.link} target="_blank" rel="noreferrer"><button style={{cursor:"pointer"}}>View</button></a>
                     </div>

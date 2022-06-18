@@ -15,12 +15,12 @@ import Edit from "./components/compose/Edit";
 import axios from "axios";
 import Author from "./components/posts/Author";
 import Password from "./components/auth/Password";
+
  const baseUrl="https://daily-blog-backend.herokuapp.com/protected";
 //  const baseUrl="http://localhost:1337/protected";
+
 const App = () => {
  
-    // const title ="Day 1";
-    // const para = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam possimus laboriosam quis voluptate. Hic, laborum asperiores. Magni ipsa itaque, perferendis rem maiores hic quasi, totam ab labore corporis aspernatur laborum repellat necessitatibus sapiente aliquam est nihil libero animi ratione et aperiam. Error cumque, ullam officia maiores cupiditate ducimus quod placeat.";
     const [login,setLogin]=useState(0);
     const [name, setName] = useState("");
     const [uid, setuid] = useState('');
@@ -43,16 +43,6 @@ const App = () => {
           // navigate("/login");
       })
   },[]);
-    // function logset(e){
-    //   setLogin(e);
-    // }
-    // function Name(e){
-    //   setName(e);
-    // }
-    // function UID(e){
-    //   setuid(e);
-    // }
-    // console.log(login);
     return (
     <React.StrictMode>
       <Router>

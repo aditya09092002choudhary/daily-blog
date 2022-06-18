@@ -49,7 +49,7 @@ const Navbar = (props) => {
         window.location.reload();
     }
     return (
-        <div className='nav-container'>
+        <div className='nav-container' >
         <nav className="navbar">
             <div className="loader"><div><img src="https://i.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.webp" width={25} alt="loading" /></div></div>
             <div className="container">
@@ -57,9 +57,9 @@ const Navbar = (props) => {
                 <div className="nav-items">
                     <ul className="nav-list">
                         {link.map((link,i)=>{
-                            return (status===1&&(link.name==="Login"||link.name==="Register")||(status!==1&&(link.name==="Update Password")))?"":(status===0&&link.name==="Logout")?"":<li key={i} className="nav-items" onClick={()=>{clearStyle(i)}}><NavLink to={link.link} className="nav-link" > {link.name}</NavLink></li>
+                            return (status===1&&(link.name==="Login"||link.name==="Register")||(status!==1&&(link.name==="Update Password")))?"":(status===0&&link.name==="Logout")?"":<li key={i} className="nav-items" ><NavLink to={link.link} className="nav-link" onClick={()=>{clearStyle(i)}}> {link.name}</NavLink></li>
                         })}
-                       {(status===1)? <li className="nav-items"><img src="https://www.directive.com/images/easyblog_shared/July_2018/7-4-18/b2ap3_large_totw_network_profile_400.jpg" alt="profile" width={40} onClick={handleOptions}/></li>:""}
+                       {(status===1)? <li className="nav-items"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfkzKuxNQRd64oM69MOwgCd2HVisB9qfuVbw&usqp=CAU" alt="profile" width={40} onClick={handleOptions}/></li>:""}
                     </ul>
                 </div>
                 <div className="toggle" onClick={handleClick}><FontAwesomeIcon icon={(state===0)?faBars:faClose} /></div>
@@ -68,15 +68,15 @@ const Navbar = (props) => {
                    <ul className="nav-list" style={{display:(state===1)?"block":"none"}}>
                         {link.map((link,i)=>{
                             return ((status===1&&(link.name==="Login"||link.name==="Register"))||(status!==1&&(link.name==="Update Password")))?"":<li key={i} className="nav-items" ><NavLink to={link.link} className="nav-link" onClick={hide}> {link.name}</NavLink></li>
-                        })}  {(status===1)?<li  className="nav-items" ><NavLink to={'/uPassword'} className="nav-link" onClick={handleOptions}> Update Password</NavLink></li>:""}
+                        })}  {(status===1)?<li  className="nav-items" ><NavLink to={'/uPassword'} className="nav-link" > Update Password</NavLink></li>:""}
                         {(status===1)?<li className='nav-items logout' ><span onClick={logout}>Logout</span></li>:""}
                     </ul>
             </div>
         </nav>
                         <div className="options" style={{display:(option===false)?"none":"block"}}>
                             <ul>
-                            {(status===1)?<li  className="nav-items" ><NavLink to={''} className="nav-link"  onClick={()=>window.alert("Coming Soon! 😊")}>Profile Picture</NavLink></li>:""}
-                            {(status===1)?<li  className="nav-items" ><NavLink to={'/uPassword'} className="nav-link" onClick={handleOptions}> Update Password</NavLink></li>:""}
+                            {(status===1)?<li  className="nav-items" ><NavLink to={''} className="nav-link"  onClick={()=>window.alert("Coming Soon! 😊")}>Profile Picture</NavLink></li>:""}<hr/>
+                            {(status===1)?<li  className="nav-items" ><NavLink to={'/uPassword'} className="nav-link" onClick={handleOptions}> Update Password</NavLink></li>:""}<hr/>
                             {(status===1)?<li className='nav-items logout' ><span onClick={logout}>Logout</span></li>:""}
                             </ul>
                         </div>

@@ -16,6 +16,7 @@ const Author = (props) => {
     const [content, setcontent] = useState([]);
     document.title = username +" - Author | Daily Blogs";
     useEffect(() => {
+        window.scrollTo(0, 0);
         // document.querySelector("#root").style.display="grid";
         if(document.getElementById("root").offsetHeight<window.innerHeight+30){
             document.getElementById("root").style.display="block";

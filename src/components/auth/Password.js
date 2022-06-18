@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 const baseUrl="https://daily-blog-backend.herokuapp.com/";
 // const baseUrl = "http://localhost:1337/";
-const Password = () => {
+const Password = (props) => {
   const navigate=useNavigate();
   const [cntPassword, setcntPassword] = useState("");
   const [newPassword,setnewPassword]=useState("");
@@ -21,6 +21,9 @@ const Password = () => {
     role:"user",
     password:""
   });
+  if(props.login===0){
+    window.location.href="/";
+  }
   // console.log(cntPassword,newPassword);
   function handleChange(e){
     const {name,value}=e.target;

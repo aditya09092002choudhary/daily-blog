@@ -10,7 +10,7 @@ const Register = () => {
   useEffect(() => {
     // document.querySelector("#root").style.display="grid";
     document.title = "Register | Daily Blogs";
-    document.querySelectorAll(".nav-link")[5].style.color="wheat";
+    // document.querySelectorAll(".nav-link")[5].style.color="wheat";
 }, []);
 const [valid, setvalid] = useState(true);
 const [errmsg, seterrmsg] = useState("");

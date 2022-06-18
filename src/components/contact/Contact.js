@@ -9,7 +9,7 @@ const Contact = () => {
   useEffect(() => {
     setwidth(window.innerWidth);
     // document.querySelector("#root").style.display="grid";
-    document.querySelectorAll(".nav-link")[2].style.color="wheat";
+    // document.querySelectorAll(".nav-link")[2].style.color="wheat";
     document.title = "Contact us | Daily Blogs"
 }, []);
 function sendFeedback(){

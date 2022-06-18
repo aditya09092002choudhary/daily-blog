@@ -1,6 +1,6 @@
 .footer-container{
-    text-align: center;
-    background-color: darkslategrey;
+    text-align: center;  
+    background: #1B2430;
     color: white;
     margin-top: 100px;
     display: flex;

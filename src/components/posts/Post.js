@@ -16,7 +16,7 @@ const Post = () => {
     const [cnt, setcnt] = useState(0);
     
     useEffect(() => {
-        // window.scrollTo(0, 0);
+        window.scrollTo(0, 0);
         document.title = "Post | Daily Blogs";
         // document.querySelector("#root").style.display="grid";
         axios.get(endpoint).then((response)=>{

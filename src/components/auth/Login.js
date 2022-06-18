@@ -8,7 +8,7 @@ const baseUrl="https://daily-blog-backend.herokuapp.com/";
 const Login = () => {
   const navigate=useNavigate();
   useEffect(() => {
-    document.querySelectorAll(".nav-link")[4].style.color="wheat";
+    // document.querySelectorAll(".nav-link")[4].style.color="wheat";
     // document.querySelector("#root").style.display="grid";
     document.title = "Login | Daily Blogs"
 }, []);

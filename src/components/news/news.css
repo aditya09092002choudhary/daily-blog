@@ -20,6 +20,7 @@
     height: 340px;
     box-shadow: 0 0 5px #ddd;
     border-radius: 4px;
+    /* border-bottom:5px darkslategray solid; */
 }
 
 .news img{

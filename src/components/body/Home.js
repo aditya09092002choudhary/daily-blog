@@ -6,20 +6,18 @@ import axios from 'axios';
 import {NavLink} from 'react-router-dom';
  const baseUrl="https://daily-blog-backend.herokuapp.com/";
 // const baseUrl = "http://localhost:1337/";
+
 const Home = (props) => {
     const logs=props.login;
-    // console.log(props.logset);
     const [content, setcontent] = useState([]);
         useEffect(() => {
-        // document.querySelector("#root").style.display="grid";
             document.title = "Daily Blogs"
-        document.querySelectorAll(".nav-link")[0].style.color="wheat";
+            document.querySelectorAll('.nav-items')[1].classList.add('liStyle');
         axios.get(baseUrl).then((response)=>{
             // console.log(response);
             setcontent(response.data);
         })
     },[]);
-    // document.getElementById("root").style.display="block";
 
 
     // -----------------------------------------  Delete post --------------------------------
@@ -41,8 +39,6 @@ const Home = (props) => {
         const tmp = window.confirm("Are you sure you want to permanently delete this post.");
         setremove(tmp);
     }
-
-// console.log(content[8].image[0].base64);
     return (
         <div className="home-container">
                 <div className="greet" ><p style={{textAlign:"end"}}>Welcome <span style={{textTransform:(props.greet!=="to the Daily Blogs")?"uppercase":"none"}}>{props.greet} ! </span> &nbsp;</p></div>
@@ -55,8 +51,6 @@ const Home = (props) => {
                     {
                         (content.length===0)?<img width={30} style={{margin:"30px auto",display:"block"}} src="https://www.netatwork.com/uploads/AAPL/loaders/Thin%20broken%20ring.gif" alt="fetching" />:
                         content.map((val,i)=>{
-        // document.querySelector("#root").style.display="block";
-
                             return ((logs===1)&&(i!==0)||(props.role!=="admin"))?<div className="post" key={i}>
                                 <div className="image-container">
                                     {(val.image.length!==0)?<img src={val.image[0].base64} alt="post-image" />:<img src='https://icon-library.com/images/img-icon/img-icon-0.jpg' alt='post-image'/>}

@@ -9,7 +9,8 @@ function News(){
     const [news, setnews] = useState([]); 
     const baseUrl = "https://newsdata.io/api/1/news?apikey=pub_6494e69154e027b9ccf588e62e619540fb4e&q=latest&country=in,ru,ua,us&language=en&category=health,politics,science,top,world";
     useEffect(() => {
-        document.querySelectorAll(".nav-link")[3].style.color="wheat";
+        window.scrollTo(0, 0);
+        // document.querySelectorAll(".nav-link")[3].style.color="wheat";
         axios.get(baseUrl).then((response)=>{
             setnews(response.data.results);
         })

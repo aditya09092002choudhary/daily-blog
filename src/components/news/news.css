@@ -49,7 +49,7 @@
     border: none;
 }
 
-@media screen and (max-width:460px) {
+@media screen and (max-width:410px) {
     .news-container .all-news{
         /* display: block; */
         flex-direction: column;
@@ -70,7 +70,7 @@
         margin: 0 auto;
     }
 }
-@media screen and (min-width:460px) and (max-width:900px {
+@media screen and (min-width:410px) and (max-width:900px {
     .news-container .all-news{
         justify-content: space-between;
     } 

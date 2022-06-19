@@ -42,7 +42,7 @@
 
 .news button{
     width: 70px;
-    background-color: darkslategrey;
+    background-color: var(--dark-color);
     color: white;
     padding: 4px 4px;
     border-radius: 3px;

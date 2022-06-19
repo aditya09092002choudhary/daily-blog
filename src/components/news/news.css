@@ -76,7 +76,7 @@
         justify-content: space-between;
     } 
     .all-news .news{
-        width: 32%;
+        width: 32% !important;
         height:355px
     }
     .news img{
@@ -89,7 +89,7 @@
         justify-content: space-between;
     } 
     .all-news .news{
-        width: 47%;
+        width: 47% !important;
         height:360px
     }
     .news img{

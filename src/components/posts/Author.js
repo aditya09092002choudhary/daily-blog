@@ -21,7 +21,6 @@ const Author = (props) => {
         if(document.getElementById("root").offsetHeight<window.innerHeight+30){
             document.getElementById("root").style.display="block";
         }
-        document.querySelectorAll(".nav-link")[0].style.color="wheat";
         axios.get(baseUrl).then((response)=>{
             setcontent(response.data);
             // console.log(response);

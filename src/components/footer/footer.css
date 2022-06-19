@@ -1,7 +1,10 @@
+/* :root{
+    --dark-color:#05386B;
+} */
 .footer-container{
     text-align: center;  
-    background: #1B2430;
-    color: white;
+    background: var(--dark-color);
+    color: var(--light-color);
     margin-top: 100px;
     display: flex;
     justify-content: center;

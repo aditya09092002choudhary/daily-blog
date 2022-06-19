@@ -1,6 +1,11 @@
+:root{
+    --dark-color:#412a5f;
+    --light-color:#ffcbe3;
+    --heading-color:#1B2430;
+}
 nav{
-    background: #1B2430;
-    color: white;
+    background: var(--dark-color);
+    color: var(--light-color);
 }
 
 nav .container{
@@ -12,7 +17,7 @@ nav .container{
 }
 .logo a{
     text-decoration: none;
-    color: white;
+    color: #edf5e1;
 }
 .logo h2{
     font-family: cursive;
@@ -38,7 +43,7 @@ ul li img{
 .nav-container .options{
     position: absolute;
     right: 5px;
-    background: #1B2430;
+    background: var(--dark-color);
     /* top: 75px; */
     margin-top: 2px;
     border-radius: 5px;
@@ -65,11 +70,12 @@ ul li img{
 
 ul li a{
     font-family: 'Courier New', Courier, monospace;
-    color: white;
+    color: var(--light-color);
     text-decoration: none;
 }
 .logout{
     cursor: pointer;
+    color: var(--light-color);
 }
 .toggle{
     display: none;

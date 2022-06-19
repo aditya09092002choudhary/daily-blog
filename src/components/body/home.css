@@ -17,7 +17,6 @@
   align-items: center;
 }
 .home-container h2{
-  /* line-height: .9; */
   margin-bottom: 10px;
 }
 span.addDate{
@@ -79,6 +78,9 @@ span.addDate{
 }
 .post-details span {
   margin-right: 20px;
+}
+h1{
+  color: var(--heading-color);
 }
 @media screen and (max-width: 400px) {
   .inner-container .top {

@@ -1,5 +1,5 @@
 :root{
-    --darkColor : darkslategrey;
+    /* --darkColor : darkslategrey; */
     --borderColor:#ddd;
     --lightColor:white;
     
@@ -14,7 +14,7 @@ html,body{
 
 .container .inner-container{
     border: none;
-    border-top: 5px solid var(--darkColor);
+    border-top: 5px solid var(--dark-color);
     width: 30%;
     margin: 20px auto;
     background: var(--lightColor);
@@ -137,7 +137,7 @@ html,body{
 
 .button button{
     width: 100%;
-    background: var(--darkColor);
+    background: var(--dark-color);
     color: var(--lightColor);
     font-size: 13px;
     padding: 7px 5px;

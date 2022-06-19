@@ -16,9 +16,14 @@ const Navbar = (props) => {
         document.querySelector(".sidebar").classList.toggle("display");
         document.querySelector(".sidebar").classList.toggle("hide");
     }
+    useEffect(()=>{
+        if(document.querySelector('.options').style.display==="none"){
+            setoption(false);
+        }
+    },[]);
     function handleOptions(){
         setoption((prev)=>{
-             return !prev
+             return !prev;
         });
     }
     function handleClick(){
@@ -68,7 +73,7 @@ const Navbar = (props) => {
                    <ul className="nav-list" style={{display:(state===1)?"block":"none"}}>
                         {link.map((link,i)=>{
                             return ((status===1&&(link.name==="Login"||link.name==="Register"))||(status!==1&&(link.name==="Update Password")))?"":<li key={i} className="nav-items" ><NavLink to={link.link} className="nav-link" onClick={hide}> {link.name}</NavLink></li>
-                        })}  {(status===1)?<li  className="nav-items" ><NavLink to={'/uPassword'} className="nav-link" > Update Password</NavLink></li>:""}
+                        })}  {(status===1)?<li  className="nav-items" ><NavLink to={'/uPassword'} className="nav-link" onClick={hide}> Update Password</NavLink></li>:""}
                         {(status===1)?<li className='nav-items logout' ><span onClick={logout}>Logout</span></li>:""}
                     </ul>
             </div>

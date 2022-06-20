@@ -39,12 +39,10 @@ const Navbar = (props) => {
     }
     // document.querySelectorAll('.nav-items').classList.add('liStyle');
     function clearStyle(e){
+        setoption(false)
         const x = document.querySelectorAll(".nav-items");
-        // document.querySelector("#root").style.display="grid";
-        const y = document.querySelectorAll(".nav-links");
         for(let i=0;i<x.length;i++){
             x[i].classList.remove('liStyle');
-            // y[i].style.color="white";
         }
         x[e+1].classList.add('liStyle');
     }
@@ -78,13 +76,16 @@ const Navbar = (props) => {
                     </ul>
             </div>
         </nav>
-                        <div className="options" style={{display:(option===false)?"none":"block"}}>
+        <div className="profile-container" style={{display:(option===false)?"none":"block"}}>
+                        <div className="options" >
                             <ul>
                             {(status===1)?<li  className="nav-items" ><NavLink to={''} className="nav-link"  onClick={()=>window.alert("Coming Soon! 😊")}>Profile Picture</NavLink></li>:""}<hr/>
                             {(status===1)?<li  className="nav-items" ><NavLink to={'/uPassword'} className="nav-link" onClick={handleOptions}> Update Password</NavLink></li>:""}<hr/>
                             {(status===1)?<li className='nav-items logout' ><span onClick={logout}>Logout</span></li>:""}
                             </ul>
                         </div>
+                        <div className="close"><FontAwesomeIcon icon={faClose} onClick={()=>{setoption(false)}} /></div>
+        </div>
         </div>
     );
 }

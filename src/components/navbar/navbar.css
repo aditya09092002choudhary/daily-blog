@@ -40,17 +40,23 @@ ul li img{
 .nav-container{
     position: relative;
 }
-.nav-container .options{
+.nav-container .profile-container{
     position: absolute;
     right: 5px;
-    background: var(--dark-color);
     /* top: 75px; */
     margin-top: 2px;
-    border-radius: 5px;
     color: white;
     z-index: 5;
 }
+.profile-container .close{
+    color: red;
+    font-size: 30px;
+    text-align: center;
+    cursor: pointer;
+}
 .options ul {
+    background: var(--dark-color);
+    border-radius: 5px;
     margin: 0;
     padding: 20px;
     display: flex;

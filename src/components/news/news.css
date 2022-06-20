@@ -49,6 +49,10 @@
     border: none;
 }
 
+.news .link{
+    padding:0 20px 0 5px;
+}
+
 @media screen and (max-width:499px) {
     .news-container .all-news{
         /* display: block; */

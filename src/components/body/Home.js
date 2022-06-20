@@ -45,7 +45,7 @@ const Home = (props) => {
             <div className="inner-container">
                 <div className="top">
                 <div className="heading"><h1>Home</h1></div>
-                <div className="add-blog">{(logs===1&&props.role==="admin")?<NavLink to="/compose"><button>Add Blog</button></NavLink>:""}</div>
+                <div className="add-blog">{(logs===1&&props.role!=="user")?<NavLink to="/compose"><button>Add Blog</button></NavLink>:""}</div>
                 </div>
                 <div className="posts">
                     {

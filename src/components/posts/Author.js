@@ -59,7 +59,7 @@ const Author = (props) => {
             <div className="inner-container"style={{marginTop:"30px"}}>
                 <div className="top">
                 <div className="heading"><h1>{username}</h1></div>
-                <div className="add-blog">{(logs===1&&props.role==="admin"&&props.uid===id)?<NavLink to="/compose"><button>Add Blog</button></NavLink>:""}</div>
+                <div className="add-blog">{(logs===1&&(props.role!=="user"&&props.uid===id))?<NavLink to="/compose"><button>Add Blog</button></NavLink>:""}</div>
                 </div>
                 <div className="posts" >
                     {

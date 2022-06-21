@@ -15,6 +15,7 @@ import Edit from "./components/compose/Edit";
 import axios from "axios";
 import Author from "./components/posts/Author";
 import Password from "./components/auth/Password";
+import Role from "./components/auth/Role";
 
  const baseUrl="https://daily-blog-backend.herokuapp.com/protected";
 //  const baseUrl="http://localhost:1337/protected";
@@ -46,7 +47,7 @@ const App = () => {
     return (
     <React.StrictMode>
       <Router>
-        <Navbar login={login} />
+        <Navbar login={login} role={role}/>
         <Routes>
           <Route path="/" element={<Home greet={(name==="")?"to the Daily Blogs":name} login={login} role={role} uid={uid} />} />
           <Route path="login" element={<Login />} login ={login}/>
@@ -59,6 +60,7 @@ const App = () => {
           <Route path={`posts/:id`} element={<Post />}/>
           <Route path={`author/:id`} element={<Author  login={login} role={role} uid={uid}/>}/>
           <Route path='/uPassword' element={<Password login={login} />} />
+          <Route path="/role" element={<Role login={login} role={role}/>} />
         </Routes>
         <Footer />
       </Router>

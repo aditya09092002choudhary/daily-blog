@@ -8,8 +8,6 @@ const baseUrl="https://daily-blog-backend.herokuapp.com/";
 const Login = () => {
   const navigate=useNavigate();
   useEffect(() => {
-    // document.querySelectorAll(".nav-link")[4].style.color="wheat";
-    // document.querySelector("#root").style.display="grid";
     document.title = "Login | Daily Blogs"
 }, []);
   const [valid,setvalid]=useState(true);
@@ -104,6 +102,7 @@ const Login = () => {
                 <div  className="icon"><i className="fa-solid fa-user-large"></i></div>
                 <div  className="input">
                   <select name="role" id="role" onChange={handleChange}>
+                    <option style={{color:"gray"}}>Select Role</option>
                     <option value="user">User</option>
                     <option value="editor">Editor</option>
                     <option value="admin">Admin</option>

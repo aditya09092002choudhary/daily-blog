@@ -38,13 +38,13 @@ const Navbar = (props) => {
         });
     }
     // document.querySelectorAll('.nav-items').classList.add('liStyle');
-    function clearStyle(e){
+    function clearStyle(i){
         setoption(false)
         const x = document.querySelectorAll(".nav-items");
         for(let i=0;i<x.length;i++){
             x[i].classList.remove('liStyle');
         }
-        x[e+1].classList.add('liStyle');
+        x[i+1].classList.add('liStyle');
     }
     function logout(){
         localStorage.removeItem('token');
@@ -71,15 +71,21 @@ const Navbar = (props) => {
                    <ul className="nav-list" style={{display:(state===1)?"block":"none"}}>
                         {link.map((link,i)=>{
                             return ((status===1&&(link.name==="Login"||link.name==="Register"))||(status!==1&&(link.name==="Update Password")))?"":<li key={i} className="nav-items" ><NavLink to={link.link} className="nav-link" onClick={hide}> {link.name}</NavLink></li>
-                        })}  {(status===1)?<li  className="nav-items" ><NavLink to={'/uPassword'} className="nav-link" onClick={hide}> Update Password</NavLink></li>:""}
+                        })}  
+                        {/* -------------------------- For user with proper authentication -------------------------- */}
+                        {(status===1)?<li  className="nav-items" ><NavLink to={''} className="nav-link"  onClick={()=>window.alert("Coming Soon! 😊")}>Profile Picture</NavLink></li>:""}
+                        {(status===1 && props.role==="admin")?<li  className="nav-items" ><NavLink to={'/role'} className="nav-link"  onClick={handleClick}>Update Role</NavLink></li>:""}
+                        {(status===1)?<li  className="nav-items" ><NavLink to={'/uPassword'} className="nav-link" onClick={hide}> Update Password</NavLink></li>:""}
                         {(status===1)?<li className='nav-items logout' ><span onClick={logout}>Logout</span></li>:""}
                     </ul>
             </div>
         </nav>
+                        {/* -------------------------- For user with proper authentication -------------------------- */}
         <div className="profile-container" style={{display:(option===false)?"none":"block"}}>
                         <div className="options" >
                             <ul>
-                            {(status===1)?<li  className="nav-items" ><NavLink to={''} className="nav-link"  onClick={()=>window.alert("Coming Soon! 😊")}>Profile Picture</NavLink></li>:""}<hr/>
+                            {(status===1)?<li  className="nav-items" ><NavLink to={'#'} className="nav-link"  onClick={()=>window.alert("Coming Soon! 😊")}>Profile Picture</NavLink></li>:""}<hr/>
+                            {(status===1 && props.role==="admin")?<><li  className="nav-items" ><NavLink to={'/role'} className="nav-link"  onClick={handleOptions}>Update Role</NavLink></li><hr/></>:""}
                             {(status===1)?<li  className="nav-items" ><NavLink to={'/uPassword'} className="nav-link" onClick={handleOptions}> Update Password</NavLink></li>:""}<hr/>
                             {(status===1)?<li className='nav-items logout' ><span onClick={logout}>Logout</span></li>:""}
                             </ul>

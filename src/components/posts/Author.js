@@ -64,7 +64,7 @@ const Author = (props) => {
                 <div className="posts" >
                     {
                         (content.length===0)?<img width={30} style={{margin:"30px auto",display:"block"}} src="https://www.netatwork.com/uploads/AAPL/loaders/Thin%20broken%20ring.gif" alt="fetching" />:
-                         content.map((val,i)=>{
+                         [...content].reverse().map((val,i)=>{
                             return (i!==0&&val.author_id===id)?<div className="post" key={i}>
                                 <div className="image-container">
                                     {(val.image.length!==0)?<img src={val.image[0].base64} alt="post-image" />:<img src='https://icon-library.com/images/img-icon/img-icon-0.jpg' alt='post-image'/>}
@@ -74,7 +74,7 @@ const Author = (props) => {
                                         <span className="addDate" style={{display:(val.author===""||i===0)?"none":"inherits"}}>posted on {val.addDate}</span>
                                         <div className="post-details">
                                            <p>{`${val.content}`.substring(0,70)+ "..."} <NavLink to={`/posts/${val._id}`} style={{color:"blue",whiteSpace:"nowrap"}}>Read More</NavLink></p>
-                                            {(logs===1&&val.author_id===props.uid)?<p style={{whiteSpace:"nowrap"}}><a href={"/edit/"+val._id}><span style={{color:"blue"}}><FontAwesomeIcon icon={faPen}/></span></a><span className='span2' onClick={()=>{setter(val._id)} }style={{color:"red",cursor:"pointer"}}><FontAwesomeIcon icon={faTrashCan} /></span></p>:''}
+                                            {((logs===1&&val.author_id===props.uid)&&props.role!=="user")?<p style={{whiteSpace:"nowrap"}}><a href={"/edit/"+val._id}><span style={{color:"blue"}}><FontAwesomeIcon icon={faPen}/></span></a><span className='span2' onClick={()=>{setter(val._id)} }style={{color:"red",cursor:"pointer"}}><FontAwesomeIcon icon={faTrashCan} /></span></p>:''}
                                         </div>
                                     </div>
                                    </div>:""

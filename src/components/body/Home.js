@@ -10,6 +10,8 @@ import {NavLink} from 'react-router-dom';
 const Home = (props) => {
     const logs=props.login;
     const [content, setcontent] = useState([]);
+    // content length
+    const[leng,setLength]=useState(0);
         useEffect(() => {
             document.title = "Daily Blogs"
             document.querySelectorAll('.nav-items')[1].classList.add('liStyle');
@@ -17,6 +19,7 @@ const Home = (props) => {
             // console.log(response);
             setcontent(response.data);
         })
+        setLength(content.length);
     },[]);
 
 
@@ -48,19 +51,30 @@ const Home = (props) => {
                 <div className="add-blog">{(logs===1&&props.role!=="user")?<NavLink to="/compose"><button>Add Blog</button></NavLink>:""}</div>
                 </div>
                 <div className="posts">
+               {((content.length!==0)&&(logs===0||props.role==="user"))? <div className="post">
+                                <div className="image-container">
+                                    {(content[0].image.length!==0)?<img src={content[0].image[0].base64} alt="post-image" />:<img src='https://icon-library.com/images/img-icon/img-icon-0.jpg' alt='post-image'/>}
+                                </div>
+                                    <div className='post-detail'>
+                                        <h2>{content[0].title}</h2>
+                                        <div className="post-details">
+                                           <p>{`${content[0].content}`.substring(0,70)+ "..."} <NavLink to={`posts/${content[0]._id}`} style={{color:"blue",whiteSpace:"nowrap"}}>Read More</NavLink></p>
+                                        </div>
+                                    </div>
+                </div>:""}
                     {
                         (content.length===0)?<img width={30} style={{margin:"30px auto",display:"block"}} src="https://www.netatwork.com/uploads/AAPL/loaders/Thin%20broken%20ring.gif" alt="fetching" />:
-                        content.map((val,i)=>{
-                            return ((logs===1)&&(i!==0)||(props.role!=="admin"))?<div className="post" key={i}>
+                        [...content].reverse().map((val,i)=>{
+                            return (i!==content.length-1)?<div className="post" key={i}>
                                 <div className="image-container">
                                     {(val.image.length!==0)?<img src={val.image[0].base64} alt="post-image" />:<img src='https://icon-library.com/images/img-icon/img-icon-0.jpg' alt='post-image'/>}
                                 </div>
                                     <div className='post-detail'>
                                         <h2>{val.title}</h2>
-                                        <span className="addDate" style={{display:(val.author===""||i===0)?"none":"inherits"}}>posted <span style={{display:(val.author==="")?"":"inline"}}>by </span> <h5 style={{display:(val.author==="")?"":"inline"}}><NavLink to={`/author/${val.author_id}`} style={{color:"black"}}>{val.author}</NavLink></h5> on {val.addDate}</span>
+                                        <span className="addDate" style={{display:(val.author==="")?"none":"inherits"}}>posted <span style={{display:(val.author==="")?"":"inline"}}>by </span> <h5 style={{display:(val.author==="")?"":"inline"}}><NavLink to={`/author/${val.author_id}`} style={{color:"black"}}>{val.author}</NavLink></h5> on {val.addDate}</span>
                                         <div className="post-details">
                                            <p>{`${val.content}`.substring(0,70)+ "..."} <NavLink to={`posts/${val._id}`} style={{color:"blue",whiteSpace:"nowrap"}}>Read More</NavLink></p>
-                                            {(logs===1&&val.author_id===props.uid)?<p style={{whiteSpace:"nowrap"}}><a href={"/edit/"+val._id}><span style={{color:"blue"}}><FontAwesomeIcon icon={faPen}/></span></a><span className='span2' onClick={()=>{setter(val._id)} }style={{color:"red",cursor:"pointer"}}><FontAwesomeIcon icon={faTrashCan} /></span></p>:''}
+                                            {((logs===1&&val.author_id===props.uid)&&props.role!=="user")?<p style={{whiteSpace:"nowrap"}}><a href={"/edit/"+val._id}><span style={{color:"blue"}}><FontAwesomeIcon icon={faPen}/></span></a><span className='span2' onClick={()=>{setter(val._id)} }style={{color:"red",cursor:"pointer"}}><FontAwesomeIcon icon={faTrashCan} /></span></p>:''}
                                         </div>
                                     </div>
                                    </div>:""

@@ -147,7 +147,7 @@ ul li a{
         padding: 0 13px;
     }
     .toggle{
-        display: block;
+        display: flex;
     }
     nav .container ul{
         display: none;

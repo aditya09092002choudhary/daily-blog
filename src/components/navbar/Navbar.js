@@ -65,7 +65,10 @@ const Navbar = (props) => {
                        {(status===1)? <li className="nav-items"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfkzKuxNQRd64oM69MOwgCd2HVisB9qfuVbw&usqp=CAU" alt="profile" width={40} onClick={handleOptions}/></li>:""}
                     </ul>
                 </div>
-                <div className="toggle" style={{display:"flex",justifyContent:"center",alignItems:"center",columnGap:"30px"}}>{(status===1)? <span className="nav-items"><img style={{borderRadius:"100%"}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfkzKuxNQRd64oM69MOwgCd2HVisB9qfuVbw&usqp=CAU" alt="profile" width={30} onClick={handleOptions}/></span>:""}<FontAwesomeIcon icon={(state===0)?faBars:faClose} onClick={handleClick} /></div>
+                <div className="toggle" style={{justifyContent:"center",alignItems:"center",columnGap:"30px"}}>
+                    {(status===1)? <span className="nav-items"><img style={{borderRadius:"100%"}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfkzKuxNQRd64oM69MOwgCd2HVisB9qfuVbw&usqp=CAU" alt="profile" width={30} onClick={handleOptions}/></span>:""}
+                    <FontAwesomeIcon icon={(state===0)?faBars:faClose} onClick={handleClick} />
+                </div>
             </div>
             <div className={(state===1)?"display sidebar":(state!==2)?"hide sidebar":"sidebar"} >
                    <ul className="nav-list" style={{display:(state===1)?"block":"none"}}>

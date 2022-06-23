@@ -73,7 +73,7 @@ const Navbar = (props) => {
             <div className={(state===1)?"display sidebar":(state!==2)?"hide sidebar":"sidebar"} >
                    <ul className="nav-list" style={{display:(state===1)?"block":"none"}}>
                         {link.map((link,i)=>{
-                            return ((status===1&&(link.name==="Login"||link.name==="Register"))||(status!==1&&(link.name==="Update Password")))?"":<li key={i} className="nav-items" ><NavLink to={link.link} className="nav-link" onClick={hide}> {link.name}</NavLink></li>
+                            return ((status===1&&(link.name==="Login"||link.name==="Register")))?"":<li key={i} className="nav-items" style={{margin:(status===1)?(i===0)?"10px auto 5px":"5px auto":""}} ><NavLink to={link.link} className="nav-link" onClick={hide}> {link.name}</NavLink></li>
                         })}  
                         {/* -------------------------- For user with proper authentication -------------------------- */}
                         {/* {(status===1)?<li  className="nav-items" ><NavLink to={''} className="nav-link"  onClick={()=>window.alert("Coming Soon! 😊")}>Profile Picture</NavLink></li>:""}

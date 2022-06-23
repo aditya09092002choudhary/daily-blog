@@ -19,10 +19,9 @@ function News(props){
         description:"",
         link:""
     });
-    const baseUrl = "https://newsdata.io/api/1/news?apikey=pub_6494e69154e027b9ccf588e62e619540fb4e&q=latest&country=in,ru,ua,us&language=en&category=health,politics,science,top,world";
+    const baseUrl = "https://newsdata.io/api/1/news?apikey=pub_6494e69154e027b9ccf588e62e619540fb4e&q=latest&country=in,ru,us&language=en&category=health,politics,science,top,world";
     useEffect(() => {
         window.scrollTo(0, 0);
-        // document.querySelectorAll(".nav-link")[3].style.color="wheat";
         axios.get(baseUrl).then((response)=>{
             setnews(response.data.results);
         })
@@ -40,7 +39,7 @@ function News(props){
                 link:val.description
             }
         });
-        // console.log(saveNews);
+        console.log(saveNews);
         if(saveNews.title!==""){
             allNews();
         }
@@ -48,7 +47,7 @@ function News(props){
     function allNews(){
         axios.post(Url+'all/news',saveNews).then((res)=>{
             window.alert(res.data);
-            window.location.reload();
+            // window.location.reload();
         });
         setsaveNews({
             title:"",
@@ -60,7 +59,7 @@ function News(props){
     function deleteNews(id){
         axios.post(Url+"delete/news",{id}).then((res)=>{
             window.alert(res.data);
-            window.location.reload();
+            // window.location.reload();
         })
     }
         return <div className="news-container">

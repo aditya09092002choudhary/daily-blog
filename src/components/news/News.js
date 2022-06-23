@@ -56,6 +56,11 @@ function News(props){
             link:""
         });
     }
+    function confirmation(id){
+        if(window.confirm("Are you sure you want to permanently delete this post.")){
+            deleteNews(id);
+        }
+    }
     function deleteNews(id){
         axios.post(Url+"delete/news",{id}).then((res)=>{
             window.alert(res.data);
@@ -75,7 +80,7 @@ function News(props){
                     <div className="heading">
                         <h2>{`${val.title}`.substring(0,50)+"..."}</h2>
                     </div>
-                    <div className="desc"><p>{`${val.description}`.substring(0,110)+"..."}</p></div>
+                    <div className="desc"><p>{`${val.description}`.substring(0,100)+"..."}</p></div>
                     <div className="link" style={{display:"flex",justifyContent:"space-between"}}>
                         <a href={val.link} target="_blank" rel="noreferrer"><button style={{cursor:"pointer"}}>View</button></a>
                        {(props.role==="admin")? <span onClick={()=>setNewsField(val)} style={{color:"blue",cursor:"pointer"}}><FontAwesomeIcon icon={faBookmark}  /></span>:""}
@@ -96,10 +101,10 @@ function News(props){
                     <div className="heading">
                         <h2>{`${val.title}`.substring(0,50)+"..."}</h2>
                     </div>
-                    <div className="desc"><p>{`${val.description}`.substring(0,110)+"..."}</p></div>
+                    <div className="desc"><p>{`${val.description}`.substring(0,100)+"..."}</p></div>
                     <div className="link" style={{display:"flex",justifyContent:"space-between"}}>
                         <a href={val.link} target="_blank" rel="noreferrer"><button style={{cursor:"pointer"}}>View</button></a>
-                        {(props.role==='admin')? <span onClick={()=>deleteNews(val._id)} style={{color:"red",cursor:"pointer"}}><FontAwesomeIcon icon={faTrashCan}  /></span>:""}
+                        {(props.role==='admin')? <span onClick={()=>confirmation(val._id)} style={{color:"red",cursor:"pointer"}}><FontAwesomeIcon icon={faTrashCan}  /></span>:""}
                     </div>
                     </div>
                 </div>

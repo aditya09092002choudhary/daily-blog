@@ -15,6 +15,7 @@ function News(props){
     const [savedNews, setsavedNews] = useState([]);
     const [saveNews,setsaveNews]=useState({
         title:"",
+        pubDate:"",
         image_url:"",
         description:"",
         link:""
@@ -34,6 +35,7 @@ function News(props){
         setsaveNews(()=>{
             return {
                 title:val.title,
+                pubDate:val.pubDate,
                 image_url:val.image_url,
                 description:val.description,
                 link:val.link
@@ -51,6 +53,7 @@ function News(props){
         });
         setsaveNews({
             title:"",
+            pubDate:"",
             image_url:"",
             description:"",
             link:""
@@ -109,6 +112,7 @@ function News(props){
                     </div>
                 </div>
                 })}
+                {(savedNews.length===0)?<h3>Nothing to show</h3>:""}
             </div>
         </div>
     }

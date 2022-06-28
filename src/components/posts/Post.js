@@ -39,7 +39,7 @@ const Post = () => {
 
             <div className="exit"><span onClick={handleExit}><FontAwesomeIcon icon={faXmark} /></span></div>
             <div className="image-container">
-            {(blog.image.length!==0)?<img src={blog.image[0].base64} alt="post-image" />:<img src='https://icon-library.com/images/img-icon/img-icon-0.jpg'  alt='post-image'/>}
+            {(blog.image.length!==0)?<img src={blog.image[0].base64} alt="post-image" />:(blog.imageLink!="")?<img src={blog.imageLink} alt="image" />:<img src='https://icon-library.com/images/img-icon/img-icon-0.jpg'  alt='post-image'/>}
 
             </div>
             <h1><FontAwesomeIcon icon={faCaretRight} /> {blog.title}</h1>

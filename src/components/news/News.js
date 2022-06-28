@@ -101,6 +101,7 @@ function News(props){
                         <img src={(val.image_url!==null)?val.image_url:"https://images.unsplash.com/photo-1569516449771-41c89ee14ca3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8YW5vbnltb3VzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"} alt="" />
                     </div>
                     <div className="details">
+                        <div className="pubDate"><span style={{fontSize:"12px",color:"gray",margin:"0 0 0 6px "}}>Publish Date: {val.pubDate}</span></div>
                     <div className="heading">
                         <h2>{`${val.title}`.substring(0,50)+"..."}</h2>
                     </div>

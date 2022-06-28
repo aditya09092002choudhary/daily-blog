@@ -20,6 +20,7 @@
     height: 340px;
     box-shadow: 0 0 5px #ddd;
     border-radius: 4px;
+    overflow: hidden;
     /* border-bottom:5px darkslategray solid; */
 }
 
@@ -32,7 +33,7 @@
     padding: 0 5px;
 }
 .news h2{
-    /* line-height: .; */
+    line-height: 1;
     font-size: 1.2rem;
 }
 .news p{
@@ -47,6 +48,9 @@
     padding: 4px 4px;
     border-radius: 3px;
     border: none;
+}
+.news  a{
+    text-decoration: none;
 }
 
 .news .link{

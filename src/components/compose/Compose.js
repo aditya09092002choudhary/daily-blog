@@ -10,6 +10,7 @@ const baseUrl="https://daily-blog-backend.herokuapp.com/";
 const Compose = (props) => {
     const navigate=useNavigate();
     const [image, setimage] = useState([]);
+    const [imageLink, setimageLink] = useState("");
     const [title, settitle] = useState("");
     const [content, setcontent] = useState("");
     const [username, setusername] = useState("");
@@ -36,7 +37,7 @@ const Compose = (props) => {
     },[]);
     function saveBlog(e){
         e.preventDefault();
-        axios.post(baseUrl+"compose",{image,title,content,username,fName,lName}).then((response)=>{
+        axios.post(baseUrl+"compose",{image,imageLink,title,content,username,fName,lName}).then((response)=>{
             // console.log(response);
             if(response.data==="Saved"){
                 window.location.href="/";
@@ -56,6 +57,10 @@ const Compose = (props) => {
                     <label htmlFor="title">Image</label>
                     <div className="input">
                     <FileBase64 multiple={ true } onDone={(base64)=>{setimage(base64)}}/>
+                    </div>
+                    <p style={{textAlign:"center",color:"gray",lineHeight:".7"}}>OR</p>
+                    <div className="input">
+                        <input type="text" name="imageLink" value={imageLink} onChange={(e)=>{setimageLink(e.target.value)}} id='input' placeholder= 'Image Link 🔗' />
                     </div>
                 </div>
                 <div className="title-container">

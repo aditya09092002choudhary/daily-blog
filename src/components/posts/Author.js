@@ -67,7 +67,7 @@ const Author = (props) => {
                          [...content].reverse().map((val,i)=>{
                             return (val.author_id===id)?<div className="post" key={i}>
                                 <div className="image-container">
-                                    {(val.image.length!==0)?<img src={val.image[0].base64} alt="post-image" />:<img src='https://icon-library.com/images/img-icon/img-icon-0.jpg' alt='post-image'/>}
+                                    {(val.image.length!==0)?<img src={val.image[0].base64} alt="post-image" />:(val.imageLink!="")?<img src={val.imageLink} alt="image" />:<img src='https://icon-library.com/images/img-icon/img-icon-0.jpg' alt='post-image'/>}
                                 </div>
                                     <div className='post-detail'>
                                         <h2>{val.title}</h2>

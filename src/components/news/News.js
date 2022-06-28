@@ -36,7 +36,7 @@ function News(props){
                 title:val.title,
                 image_url:val.image_url,
                 description:val.description,
-                link:val.description
+                link:val.link
             }
         });
         console.log(saveNews);

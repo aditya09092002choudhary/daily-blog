@@ -57,7 +57,7 @@ const App = () => {
           <Route path="news" element={<News role={role}/>}  />
           <Route path="compose" element={<Compose login ={login} uid={uid}/>} />
           <Route path="edit/:id" element={<Edit />} />
-          <Route path={`posts/:id`} element={<Post />}/>
+          <Route path={`posts/:id`} element={<Post uid={uid} />}/>
           <Route path={`author/:id`} element={<Author  login={login} role={role} uid={uid}/>}/>
           <Route path='/uPassword' element={<Password login={login} />} />
           <Route path="/role" element={<Role login={login} role={role}/>} />

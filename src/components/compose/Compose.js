@@ -38,16 +38,17 @@ const Compose = (props) => {
     function saveBlog(e){
         e.preventDefault();
         axios.post(baseUrl+"compose",{image,imageLink,title,content,username,fName,lName}).then((response)=>{
-            // console.log(response);
-            if(response.data==="Saved"){
-                window.location.href="/";
-            }else{
-                console.log("Internal Error!, Please try again later.");
-            }
-        }).catch((err)=>{
-            console.log(err);
-        })
+           // console.log(response);
+           if(response.data==="Saved"){
+               window.location.href="/";
+           }else{
+               console.log("Internal Error!, Please try again later.");
+           }
+       }).catch((err)=>{
+           console.log(err);
+       })
     }
+
     return (
         <div className='compose-container'>
                 {/* <form encType='multipart/form-data' style={{marginBottom:"20px"}}> */}
@@ -56,7 +57,7 @@ const Compose = (props) => {
                 <div className="image-container">
                     <label htmlFor="title">Image</label>
                     <div className="input">
-                    <FileBase64 multiple={ true } onDone={(base64)=>{setimage(base64)}}/>
+                    <FileBase64 multiple={ true } className="file" onDone={(base64)=>{setimage(base64)}}/>
                     </div>
                     <p style={{textAlign:"center",color:"gray",lineHeight:".7"}}>OR</p>
                     <div className="input">

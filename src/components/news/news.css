@@ -20,7 +20,8 @@
     height: 340px;
     box-shadow: 0 0 5px #ddd;
     border-radius: 4px;
-    overflow: hidden;
+    /* overflow-x: hidden;
+    overflow-y: visible; */
     /* border-bottom:5px darkslategray solid; */
 }
 
@@ -35,6 +36,7 @@
 .news h2{
     line-height: 1;
     font-size: 1.2rem;
+    margin: 5px 0 !important;
 }
 .news p{
     font-size: .8rem;

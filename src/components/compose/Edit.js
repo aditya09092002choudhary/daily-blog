@@ -11,6 +11,7 @@ const Edit = () => {
     const { id } = useParams();
     // console.log(id);
     const [image, setimage] = useState([]);
+    const [imageLink, setimageLink] = useState("");
     const endpoint = baseUrl+id;
     const [data, setdata] = useState({
         title:"",
@@ -21,6 +22,7 @@ const Edit = () => {
         document.title = "Edit post | Daily Blogs"
         axios.get(endpoint).then((response)=>{
             // console.log(response);
+            setimageLink(response.data.imageLink);
             setimage(response.data.image);
             data.title=response.data.title;
             data.content=response.data.content;
@@ -45,10 +47,11 @@ const Edit = () => {
     }
     // console.log(data);
     function send(){
-        axios.post(endpoint,{data,image}).then((response)=>{
+        axios.post(endpoint,{data,image,imageLink}).then((response)=>{
             // console.log(response);
             if(response.data==="Success"){
-                window.location.href="/";
+                // window.location.reload();
+                window.history.back();
             }else{
                 window.alert("Internal error!, Please try again later");
             }
@@ -71,6 +74,12 @@ const Edit = () => {
                     <label htmlFor="title">Image</label>
                     <div className="input">
                     <FileBase64 multiple={ true } onDone={(base64)=>{setimage(base64)}}/>
+                    </div>
+                    <p style={{textAlign:"center",color:"gray",lineHeight:".7"}}>OR</p>
+                    
+                    <label htmlFor="title">Image Link 🔗</label>
+                    <div className="input">
+                        <input type="text" name="imageLink" value={imageLink} onChange={(e)=>{setimageLink(e.target.value)}} id='input' placeholder= 'Image Link 🔗' />
                     </div>
                 </div>
                 <div className="title-container">

@@ -41,7 +41,7 @@ function News(props){
                 link:val.link
             }
         });
-        console.log(saveNews);
+        // console.log(saveNews);
         if(saveNews.title!==""){
             allNews();
         }
@@ -73,7 +73,7 @@ function News(props){
         return <div className="news-container">
             <h1>Top News</h1>
             <div className="all-news">
-                {(news.length===0)?<img width={20} style={{margin:"30px auto",display:"block"}} src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="fetching" />:
+                {(news.length===0)?<img width={20} style={{margin:"30px auto",display:"block"}} src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="fetching" />:(news.length===0)?<h3>No news found</h3>:
                 news.map((val,i)=>{
                     return <div className="news" key={i}>
                     <div className="image">
@@ -94,7 +94,7 @@ function News(props){
             </div>
             <h1>All News</h1>
             <div className="all-news">
-                {(news.length===0)?<img width={20} style={{margin:"30px auto",display:"block"}} src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="fetching" />:
+                {(savedNews.length===0)?<img width={20} style={{margin:"30px auto",display:"block"}} src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="fetching" />:(savedNews.length===0)?<h3>No news found</h3>:
                 [...savedNews].reverse().map((val,i)=>{
                     return <div className="news" key={i}>
                     <div className="image">
@@ -113,7 +113,6 @@ function News(props){
                     </div>
                 </div>
                 })}
-                {(savedNews.length===0)?<h3>Nothing to show</h3>:""}
             </div>
         </div>
     }

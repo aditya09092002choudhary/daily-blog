@@ -51,7 +51,8 @@ const Edit = () => {
             // console.log(response);
             if(response.data==="Success"){
                 // window.location.reload();
-                window.history.back();
+                window.location.href="/";
+                // window.history.back();
             }else{
                 window.alert("Internal error!, Please try again later");
             }

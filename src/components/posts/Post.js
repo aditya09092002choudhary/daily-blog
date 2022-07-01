@@ -47,7 +47,7 @@ const Post = (props) => {
             <h1><FontAwesomeIcon icon={faCaretRight} /> {blog.title}</h1>
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
             <span><span className="addDate" style={{display:(blog.author===""||blog.author_id==="")?"none":"inherits"}}>posted <span style={{display:(blog.author==="")?"":"inline"}}>by </span> <h5 style={{display:(blog.author==="")?"":"inline"}}><NavLink to={`/author/${blog.author_id}`} style={{color:"black"}}>{blog.author}</NavLink></h5> on {blog.addDate}</span></span>
-            {(props.uid===blog.author_id)?<span className='editPost' ><a href={"/edit/"+blog._id} >Edit&nbsp;&nbsp; <FontAwesomeIcon icon={faPen} /> </a></span>:""}
+            {(props.uid===blog.author_id&&blog._id!=="627762b4bc58b9e10c6ff819")?<span className='editPost' style={{display:(props.login===1)?"unset":"none"}}><a href={"/edit/"+blog._id} >Edit&nbsp;&nbsp; <FontAwesomeIcon icon={faPen} /> </a></span>:""}
             </div>
 
             <p style={{whiteSpace:"break-spaces"}}>{blog.content}</p>

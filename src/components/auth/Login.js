@@ -14,7 +14,7 @@ const Login = () => {
   const [errmsg, seterrmsg] = useState("");
   const [auth, setauth] = useState({
     username:"",
-    role:"user",
+    role:"",
     password:""
   });
   function handleChange(e){

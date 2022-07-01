@@ -5,8 +5,11 @@ import { useNavigate } from 'react-router-dom';
 
 const baseUrl="https://daily-blog-backend.herokuapp.com/";
 // const baseUrl = "http://localhost:1337/";
-const Register = () => {
+const Register = (props) => {
   const navigate=useNavigate();
+  if(props.login===1){
+    navigate('/');
+  }
   useEffect(() => {
     // document.querySelector("#root").style.display="grid";
     document.title = "Register | Daily Blogs";
@@ -103,13 +106,6 @@ async function registerUser(event) {
                   <input type="email" placeholder="Enter Email" onChange={handleChange} id="email"  name='username' autoComplete="off" required/>
                 </div>
               </div>
-              {/* <div id="phoneMsg" className="err"></div>
-              <div className="inner-element">
-                <div className="icon"><i className="fa-solid fa-phone"></i></div>
-                <div className="input">
-                  <input type="tel"  id="phone"    placeholder="Enter Mobile Number" autoComplete="off" required />
-                </div>
-              </div> */}
               <div id="passwordMsg" className="err"></div>
               <div className="inner-element">
                 <div className="icon"><i className="fa-solid fa-key"></i></div>
@@ -118,24 +114,7 @@ async function registerUser(event) {
                 </div>
                 {/* <div className="icon-right" onClick={showPassword1}><i className="fa-solid fa-eye-slash eye1" ></i></div> */}
               </div>
-              {/* <div id="confPassMsg" className="err"></div>
-              <div className="inner-element">
-                <div className="icon"><i className="fa-solid fa-key"></i></div>
-                <div className="input">
-                  <input type="password" placeholder="Confirm Password" id="conf-pass"   required/>
-                </div>
-                <div className="icon-right" onClick={showPassword2}><i className="fa-solid fa-eye-slash eye2" ></i></div>
-
-              </div> */}
-              {/* <div id="genderMsg" className="err"></div>
-              <div className="gender">
-                <div className="male">
-                  <input type="radio" name="gender" id="male"   /> <label htmlFor="male" required="required">Male</label> 
-                </div>
-                <div className="female">
-                  <input type="radio" name="gender" id="female"   /> <label htmlFor="female" required ="required">Female</label>
-                </div>
-              </div> */}
+                           
               {/* <div className="checkbox">
                 <input type="checkbox" name="check" id="check" /> <label htmlFor="check">Remember me</label>
               </div> */}

@@ -38,6 +38,15 @@
     border: 1px solid #ddd;
     margin-top: 5px;
 }
+.compose textarea::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .compose textarea {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
 textarea{
     resize: none;
 }

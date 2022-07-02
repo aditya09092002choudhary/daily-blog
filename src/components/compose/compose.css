@@ -3,7 +3,7 @@
     margin: 20px 0;
     padding: 8px 0;
     
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIs2lNYnj5K9kNvxzE5GzuCXFDb15sX1koOw&usqp=CAU");
+    background-image: url("../../../public/lightbg.png");
 }
 .compose h1{
     line-height: .5;

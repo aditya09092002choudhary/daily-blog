@@ -2,7 +2,7 @@
     background: white;
     margin-top: 20px;
     padding: 20px 100px;
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIs2lNYnj5K9kNvxzE5GzuCXFDb15sX1koOw&usqp=CAU");
+    background-image: url("../../../public/lightbg.png");
 }
 
 .about-container li{

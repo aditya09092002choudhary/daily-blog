@@ -74,7 +74,7 @@ function News(props){
             <div className="inner-news-container">
             <h1>Top News</h1>
             <div className="all-news">
-                {(news.length===0)?<img width={20} style={{margin:"30px auto",display:"block"}} src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="fetching" />:(news.length===0)?<h3>No news found</h3>:
+                {(news.length===0)?<img width={70} style={{margin:"30px auto",display:"block"}} src="https://c.tenor.com/whis5JX19ycAAAAC/loading-load.gif" alt="fetching" />:(news.length===0)?<h3>No news found</h3>:
                 news.map((val,i)=>{
                     return <div className="news" key={i}>
                     <div className="image">
@@ -95,7 +95,7 @@ function News(props){
             </div>
             <h1>All News</h1>
             <div className="all-news">
-                {(savedNews.length===0)?<img width={20} style={{margin:"30px auto",display:"block"}} src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="fetching" />:(savedNews.length===0)?<h3>No news found</h3>:
+                {(savedNews.length===0)?<img width={70} style={{margin:"30px auto",display:"block"}} src="https://c.tenor.com/whis5JX19ycAAAAC/loading-load.gif" alt="fetching" />:(savedNews.length===0)?<h3>No news found</h3>:
                 [...savedNews].reverse().map((val,i)=>{
                     return <div className="news" key={i}>
                     <div className="image">

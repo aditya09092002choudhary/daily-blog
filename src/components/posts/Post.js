@@ -52,7 +52,7 @@ const Post = (props) => {
 
             <p style={{whiteSpace:"break-spaces"}}>{blog.content}</p>
         </div>:
-        <img width={30} style={{margin:"30px auto",display:"block"}} src="https://www.netatwork.com/uploads/AAPL/loaders/Thin%20broken%20ring.gif" alt="fetching" />
+        <img width={70} style={{margin:"30px auto",display:"block"}} src="https://c.tenor.com/whis5JX19ycAAAAC/loading-load.gif" alt="fetching" />
         )}
         </div>
         </div>

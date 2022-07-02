@@ -3,7 +3,7 @@
     padding: 2% 10%;
     margin: 20px 0;
     scroll-behavior: smooth;
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIs2lNYnj5K9kNvxzE5GzuCXFDb15sX1koOw&usqp=CAU");
+    background-image: url("../../../public/lightbg.png");
 }
 .post-container .post-inner-container{
     border: 1px solid gray;

@@ -63,7 +63,7 @@ const Author = (props) => {
                 </div>
                 <div className="posts" >
                     {
-                        (content.length===0)?<img width={30} style={{margin:"30px auto",display:"block"}} src="https://www.netatwork.com/uploads/AAPL/loaders/Thin%20broken%20ring.gif" alt="fetching" />:
+                        (content.length===0)?<img width={70} style={{margin:"30px auto",display:"block"}} src="https://c.tenor.com/whis5JX19ycAAAAC/loading-load.gif" alt="fetching" />:
                          [...content].reverse().map((val,i)=>{
                             return (val.author_id===id)?<div className="post" key={i}>
                                 <div className="image-container">

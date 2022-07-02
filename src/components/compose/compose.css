@@ -3,7 +3,7 @@
     margin: 20px 0;
     padding: 8px 0;
     
-
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIs2lNYnj5K9kNvxzE5GzuCXFDb15sX1koOw&usqp=CAU");
 }
 .compose h1{
     line-height: .5;
@@ -15,7 +15,7 @@
     /* text-align: center; */
     margin: 30px auto 20px;
     padding: 20px 30px;
-    
+    background: white;
 }
 
 .title-container,.image-container{

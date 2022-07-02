@@ -1,6 +1,6 @@
 :root{
-    --dark-color:#412a5f;
-    --light-color:#ffcbe3;
+    --dark-color:black;
+    --light-color:white;
     --heading-color:#1B2430;
 }
 nav{
@@ -14,6 +14,7 @@ nav .container{
     align-items: center;
     white-space: nowrap;
     padding: 0 20px;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrYQmBO8PTKMOGhAyHUC-z9PJst81FLsCrUA&usqp=CAU");
 }
 .logo a{
     text-decoration: none;
@@ -64,6 +65,7 @@ ul li img{
     justify-content: center;
     /* row-gap: 10px; */
     align-items: center;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrYQmBO8PTKMOGhAyHUC-z9PJst81FLsCrUA&usqp=CAU");
 }
 .options ul hr{
     width: 100%;
@@ -116,6 +118,8 @@ ul li a{
 .sidebar{
     height: 0;
     border: 1px solid transparent !important;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrYQmBO8PTKMOGhAyHUC-z9PJst81FLsCrUA&usqp=CAU");
+
 }
 .sidebar ul{
     margin: 0 auto;

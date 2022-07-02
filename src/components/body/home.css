@@ -1,7 +1,11 @@
+.inner-container{
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIs2lNYnj5K9kNvxzE5GzuCXFDb15sX1koOw&usqp=CAU");
+}
 .home-container h1 {
   text-align: start !important;
   /* line-height: .8; */
   font-family: "Courier New", Courier, monospace !important;
+  /* padding: 5px; */
 }
 .home-container .inner-container {
   background-color: white;
@@ -43,6 +47,7 @@ span.addDate{
 }
 .posts .post {
   border: 1px solid #ddd;
+  background-color: white;
   padding: 5px 10px;
   border-radius: 7px;
   margin-bottom: 10px;

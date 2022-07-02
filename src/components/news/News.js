@@ -71,6 +71,7 @@ function News(props){
         })
     }
         return <div className="news-container">
+            <div className="inner-news-container">
             <h1>Top News</h1>
             <div className="all-news">
                 {(news.length===0)?<img width={20} style={{margin:"30px auto",display:"block"}} src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="fetching" />:(news.length===0)?<h3>No news found</h3>:
@@ -114,6 +115,7 @@ function News(props){
                 </div>
                 })}
             </div>
+        </div>
         </div>
     }
 

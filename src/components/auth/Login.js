@@ -72,7 +72,8 @@ const Login = () => {
     // console.log(data);
     localStorage.setItem('token',data.token);
     if(data.success===true){
-      window.location.href="/";
+    document.querySelector(".loading-gif").style.display="none";
+    window.location.href="/";
       // navigate("/");
     }
     if(data.success===false){
@@ -85,7 +86,7 @@ const Login = () => {
     return (
         <div  className="container">
       <div  className="inner-container" style={{height:"80%"}}>
-        <div className="loading-gif" style={{textAlign:"center",display:"none"}}><img src="https://www.netatwork.com/uploads/AAPL/loaders/loading_ajax.gif" width={35} alt="loading" /></div>
+        <div className="loading-gif" style={{textAlign:"center",display:"none"}}><img src="https://c.tenor.com/whis5JX19ycAAAAC/loading-load.gif" width={70} alt="loading" /></div>
         <div  className="heading"><h1>Login</h1></div>
         <div  className="form-container">
          <p style={{color:"red",textAlign:'center'}}>&nbsp;{(valid===false)?errmsg+"!":""}</p> 

@@ -47,24 +47,28 @@ const Role = (props) => {
         })
       }
       function updateRole(){
+            document.querySelector(".loading-gif").style.display="unset";
         axios.post(baseUrl+"role",auth).then((res)=>{
             // console.log(res.data);
             if(res.data.success===true){
-                window.alert(res.data.message);
+            document.querySelector(".loading-gif").style.display="none";
+            window.alert(res.data.message);
                 navigate('/');
             }
             if(res.data.success===false){
-                setvalid(false);
+            document.querySelector(".loading-gif").style.display="none";
+            setvalid(false);
             }
         }).catch((res)=>{
             seterrmsg("User credentials are incorrect. Try again");
+            document.querySelector(".loading-gif").style.display="none";
             setvalid(false);
         })
       }
     return (
         <div  className="container">
       <div  className="inner-container" style={{height:"80%"}}>
-        <div className="loading-gif" style={{textAlign:"center",display:"none"}}><img src="https://www.netatwork.com/uploads/AAPL/loaders/loading_ajax.gif" width={35} alt="loading" /></div>
+        <div className="loading-gif" style={{textAlign:"center",display:"none"}}><img src="https://c.tenor.com/whis5JX19ycAAAAC/loading-load.gif" width={70} alt="loading" /></div>
         <div  className="heading"><h1>Update Role</h1></div>
         <div  className="form-container">
          <p style={{color:"red",textAlign:'center'}}>&nbsp;{(valid===false)?errmsg+"!":""}</p> 

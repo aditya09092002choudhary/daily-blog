@@ -147,7 +147,7 @@ html,body{
     border: none;
     cursor: pointer;
     outline: none;
-    background-image: url("../../../public/darkbg.png");
+    background: #174578;
 }
 
 textarea{

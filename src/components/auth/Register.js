@@ -66,7 +66,8 @@ async function registerUser(event) {
   axios.post(baseUrl+'register',auth).then((res)=>{
     if(res.data.success===true){
       // window.location.href="/login";
-      navigate("/login");
+    document.querySelector(".loading-gif").style.display="none";
+    navigate("/login");
     }else{
     document.querySelector(".loading-gif").style.display="none";
       setvalid(false);
@@ -78,7 +79,7 @@ async function registerUser(event) {
     return (
         <div className="container">
       <div className="inner-container">
-      <div className="loading-gif" style={{textAlign:"center",display:"none"}}><img src="https://www.netatwork.com/uploads/AAPL/loaders/loading_ajax.gif" width={35} alt="loading" /></div>
+      <div className="loading-gif" style={{textAlign:"center",display:"none"}}><img src="https://c.tenor.com/whis5JX19ycAAAAC/loading-load.gif" width={70} alt="loading" /></div>
         <div className="heading"><h1>Register</h1></div>
         <div className="form-container">
           {(valid===false)?<p style={{color:"red",textAlign:"center",fontSize:"14px"}}>{errmsg+", Check your email"}</p>:""}

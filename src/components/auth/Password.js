@@ -61,7 +61,7 @@ const Password = (props) => {
           }
     })
 },[]);
-async function loginUser(event) {
+async function setPassword(event) {
   event.preventDefault()
   if(cntPassword===newPassword){
   document.querySelector(".loading-gif").style.display="unset";
@@ -71,19 +71,23 @@ async function loginUser(event) {
       navigate('/');
       alert("Password is updated successfully.");
     }
-  })
+  }).catch((res)=>{
+    seterrmsg("User credentials are incorrect. Try again");
+    document.querySelector(".loading-gif").style.display="none";
+    setvalid(false);
+})
 }else{
-  alert("Confirm Password does not matched ! Try again.");
+  window.alert("Confirm Password does not matched ! Try again.");
 }
 }
     return (
         <div  className="container">
       <div  className="inner-container" style={{height:"80%"}}>
-        <div className="loading-gif" style={{textAlign:"center",display:"none"}}><img src="https://www.netatwork.com/uploads/AAPL/loaders/loading_ajax.gif" width={35} alt="loading" /></div>
+        <div className="loading-gif" style={{textAlign:"center",display:"none"}}><img src="https://c.tenor.com/whis5JX19ycAAAAC/loading-load.gif" width={70} alt="loading" /></div>
         <div  className="heading"><h1>Update Password</h1></div>
         <div  className="form-container">
          <p style={{color:"red",textAlign:'center'}}>&nbsp;{(valid===false)?errmsg+"!":""}</p> 
-          <form method='post' onSubmit={loginUser} className="signup-form signup-form-update-password">
+          <form method='post' onSubmit={setPassword} className="signup-form signup-form-update-password">
             <div  className="form-element">
               <div id="emailMsg"  className="err"></div>
               <div  className="inner-element">

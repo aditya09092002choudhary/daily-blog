@@ -1,5 +1,5 @@
 :root{
-    --dark-color:blue;
+    --dark-color:#174578;
     --light-color:white;
     --heading-color:#1B2430;
 }
@@ -142,7 +142,7 @@ ul li a{
     0%{height: 150px;}
     100%{height: 0;}
 }
-@media screen and (max-width:650px){
+@media screen and (max-width:800px){
     .logo h2{
         font-size: 1.3rem;
         line-height: .9;

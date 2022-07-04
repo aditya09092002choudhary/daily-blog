@@ -33,9 +33,9 @@ const Post = (props) => {
             window.history.back();
         },300);
     }
-    return  <div>
-        <h1 style={{lineHeight:".5"}}>Post</h1>
-        <div className='post-container '>
+    return  <div className='post-outer container'>
+        <div className='post-container'>
+            <h1 className="heading">Post</h1>
     {((cnt!==0)?
             <div className="post-inner-container scaleIn">
 

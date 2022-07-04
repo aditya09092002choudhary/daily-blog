@@ -70,7 +70,7 @@ const Author = (props) => {
                                     {(val.image.length!==0)?<img src={val.image[0].base64} alt="post-image" />:(val.imageLink!="")?<img src={val.imageLink} alt="image" />:<img src='https://icon-library.com/images/img-icon/img-icon-0.jpg' alt='post-image'/>}
                                 </div>
                                     <div className='post-detail'>
-                                        <h2>{val.title}</h2>
+                                        <h2>{`${val.title}`.substring(0,70)+ "..."}</h2>
                                         <span className="addDate" style={{display:(val.author==="")?"none":"inherits"}}>posted on {val.addDate}</span>
                                         <div className="post-details">
                                            <p>{`${val.content}`.substring(0,70)+ "..."} <NavLink to={`/posts/${val._id}`} style={{color:"blue",whiteSpace:"nowrap"}}>Read More</NavLink></p>

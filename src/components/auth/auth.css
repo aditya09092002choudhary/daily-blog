@@ -29,7 +29,8 @@ html,body{
     font-weight: 500;
     text-align: center;
     line-height: 1;
-    font-family: cursive,sans-serif;
+  /* font-family: "Courier New", Courier, monospace !important; */
+  /* font-family: cursive,sans-serif; */
     margin-bottom: 30px;
 }
 
@@ -200,4 +201,7 @@ textarea{
 }
     
 
+}
+h1{
+    font-family: "Courier New", Courier, monospace !important;
 }
